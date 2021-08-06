@@ -1,0 +1,10 @@
+.github
+docs
+node_modules
+packages
+public
+src
+.eslintrc.js
+.prettierrc.js
+babel.config.js
+yarn.lock
