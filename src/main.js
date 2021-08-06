@@ -1,8 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
-import "@arcgis/core/assets/esri/themes/light/main.css";
+import VueArcgis from "../packages";
 
 Vue.config.productionTip = false;
+
+Vue.use(VueArcgis);
 
 new Vue({
   render: h => h(App)

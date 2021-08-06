@@ -1,28 +1,15 @@
 <script>
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
+import layerMixin from "../../mixins/layers";
 
 export default {
-  name: "e-tile-layer",
-  render() {
-    return "";
-  },
+  name: "e-feature-layer",
+  mixins: [layerMixin],
   data() {
-    return {};
-  },
-  created() {
-    this.$once("mapInit", this.init);
-  },
-  methods: {
-    init(map) {
-      const layer = new FeatureLayer(this.$attrs);
-      map.add(layer);
-      const events = ["edits", "layerview-create", "layerview-create-error", "layerview-destroy"];
-      events.forEach(event => {
-        layer.on(event, e => {
-          this.$emit(event, e);
-        });
-      });
-    }
+    return {
+      module: FeatureLayer,
+      otherEvents: ["edits"]
+    };
   }
 };
 </script>

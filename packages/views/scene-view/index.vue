@@ -1,13 +1,13 @@
 <script>
-import MapView from "@arcgis/core/views/MapView";
+import SceneView from "@arcgis/core/views/SceneView";
 import viewMixin from "../../mixins/views";
 
 export default {
-  name: "e-map-view",
+  name: "e-scene-view",
   mixins: [viewMixin],
   data() {
     return {
-      module: MapView
+      module: SceneView
     };
   }
 };

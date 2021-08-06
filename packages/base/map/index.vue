@@ -6,13 +6,29 @@
 
 <script>
 import Map from "@arcgis/core/Map";
+import "@arcgis/core/assets/esri/themes/light/main.css";
 
 export default {
   name: "e-map",
+  provide() {
+    return {
+      mapRoot: this
+    };
+  },
   data() {
     return {
       map: null
     };
+  },
+  watch: {
+    $attrs: {
+      handler(val) {
+        Object.keys(val).forEach(key => {
+          this.map[key] = val[key];
+        });
+      },
+      deep: true
+    }
   },
   mounted() {
     this.initMap();
