@@ -4,6 +4,7 @@ node_modules
 packages
 public
 src
+lib
 .eslintrc.js
 .prettierrc.js
 babel.config.js

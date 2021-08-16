@@ -5,11 +5,7 @@
 </template>
 
 <script>
-// import "@arcgis/core/assets/esri/themes/light/main.css";
 import Map from "@arcgis/core/Map";
-// import esriConfig from "@arcgis/core/config.js";
-// esriConfig.assetsPath = "/assets";
-// import { loadModules } from "esri-loader";
 
 export default {
   name: "e-map",

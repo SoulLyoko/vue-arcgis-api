@@ -1,15 +1,7 @@
 import { uuid } from "../utils/uuid";
-// import { loadModules } from "esri-loader";
 
 export default {
   inject: ["mapRoot"],
-  render() {
-    return (
-      <div id={this.containerId} style="width:100%;height:100%">
-        <slot></slot>
-      </div>
-    );
-  },
   data() {
     return {
       module: null,
@@ -53,7 +45,6 @@ export default {
   },
   methods: {
     async init() {
-      // const [Module] = await loadModules([this.module]);
       const view = new this.module({
         container: this.containerId, // References the ID of a DOM element
         map: this.map, // References a Map instance
