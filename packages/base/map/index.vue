@@ -1,12 +1,15 @@
 <template>
-  <div id="mapDiv">
+  <div id="mapDiv" style="width: 100%; height: 100%">
     <slot></slot>
   </div>
 </template>
 
 <script>
+// import "@arcgis/core/assets/esri/themes/light/main.css";
 import Map from "@arcgis/core/Map";
-import "@arcgis/core/assets/esri/themes/light/main.css";
+// import esriConfig from "@arcgis/core/config.js";
+// esriConfig.assetsPath = "/assets";
+// import { loadModules } from "esri-loader";
 
 export default {
   name: "e-map",
@@ -34,7 +37,8 @@ export default {
     this.initMap();
   },
   methods: {
-    initMap() {
+    async initMap() {
+      // const [Map] = await loadModules(["esri/map"]);
       this.map = new Map(this.$attrs);
       this.$children.forEach(child => {
         child.$emit("mapInit", this.map);
@@ -43,10 +47,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-#mapDiv {
-  width: 100%;
-  height: 100%;
-}
-</style>

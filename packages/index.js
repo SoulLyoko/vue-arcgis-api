@@ -1,3 +1,4 @@
+// import { loadScript } from "esri-loader";
 import EMap from "./base/map";
 import EMapView from "./views/map-view";
 import ESceneView from "./views/scene-view";
@@ -9,6 +10,7 @@ const components = [EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFea
 
 const install = function (Vue) {
   if (install.installed) return;
+  // loadScript({ url: "https://js.arcgis.com/4.20/" });
   components.forEach(component => {
     Vue.component(component.name, component);
   });

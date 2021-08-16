@@ -2,6 +2,9 @@
  * 扩展 VuePress 应用
  */
 import VueArcgis from "../../packages";
+import esriConfig from "@arcgis/core/config.js";
+esriConfig.assetsPath = "/assets";
+import "@arcgis/core/assets/esri/themes/light/main.css";
 
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数

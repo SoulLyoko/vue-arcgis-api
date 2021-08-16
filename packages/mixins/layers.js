@@ -1,8 +1,6 @@
 export default {
   inject: ["mapRoot"],
-  render() {
-    return "";
-  },
+  render() {},
   data() {
     return {
       module: null,
