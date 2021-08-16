@@ -1,9 +1,3 @@
-<template>
-  <div :id="$attrs.id || containerId" style="width: 100%; height: 100%">
-    <slot></slot>
-  </div>
-</template>
-
 <script>
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import layerMixin from "../../mixins/layers";
