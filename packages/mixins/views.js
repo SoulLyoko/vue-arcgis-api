@@ -64,6 +64,7 @@ export default {
         },
         { deep: true }
       );
+      this.$emit("init", view);
     }
   }
 };

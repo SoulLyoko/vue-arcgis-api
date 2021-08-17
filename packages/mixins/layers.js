@@ -44,6 +44,7 @@ export default {
           this.$emit(event, e);
         });
       });
+      this.$emit("init", this.instance);
     }
   }
 };

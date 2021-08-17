@@ -38,6 +38,7 @@ export default {
       this.map = new Map(this.$attrs);
       this.$children.forEach(child => {
         child.$emit("mapInit", this.map);
+        this.$emit("init", this.map);
       });
     }
   }
