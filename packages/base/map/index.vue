@@ -6,6 +6,7 @@
 
 <script>
 import Map from "@arcgis/core/Map";
+import emitter from "../../utils/emitter";
 
 export default {
   name: "e-map",
@@ -34,12 +35,9 @@ export default {
   },
   methods: {
     async initMap() {
-      // const [Map] = await loadModules(["esri/map"]);
       this.map = new Map(this.$attrs);
-      this.$children.forEach(child => {
-        child.$emit("mapInit", this.map);
-        this.$emit("init", this.map);
-      });
+      emitter.emit("mapInit", this.map);
+      this.$emit("init", this.map);
     }
   }
 };

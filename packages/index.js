@@ -4,8 +4,9 @@ import ESceneView from "./views/scene-view";
 import ETileLayer from "./layers/tile-layer";
 import EMapImageLayer from "./layers/map-image-layer";
 import EFeatureLayer from "./layers/feature-layer";
+import EWidgetCustom from "./widgets/custom";
 
-const components = [EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer];
+const components = [EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer, EWidgetCustom];
 
 const install = function (Vue) {
   if (install.installed) return;
@@ -16,4 +17,4 @@ const install = function (Vue) {
 
 export default { install };
 
-export { EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer };
+export { EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer, EWidgetCustom };

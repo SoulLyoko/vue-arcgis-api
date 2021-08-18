@@ -1,6 +1,6 @@
 {
   "name": "vue-arcgis-api",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": false,
   "description": "vue-arcgis-api",
   "keyword": [
@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "core-js": "^3.16.0",
+    "mitt": "^3.0.0",
     "vue": "^2.6.14"
   },
   "devDependencies": {

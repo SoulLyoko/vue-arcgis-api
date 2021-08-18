@@ -6,6 +6,9 @@
       <e-tile-layer :url="topoUrl"></e-tile-layer>
       <!-- <e-map-image-layer :url="topoUrl"></e-map-image-layer> -->
       <e-feature-layer v-bind="featureLayer"></e-feature-layer>
+      <e-widget-custom position="top-right" :box-shadow="false">
+        <h1>widget</h1>
+      </e-widget-custom>
     </e-map>
 
     <div v-show="false">
