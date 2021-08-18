@@ -5,8 +5,20 @@ import ETileLayer from "./layers/tile-layer";
 import EMapImageLayer from "./layers/map-image-layer";
 import EFeatureLayer from "./layers/feature-layer";
 import EWidgetCustom from "./widgets/custom";
+import EWidgetLegend from "./widgets/legend";
 
-const components = [EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer, EWidgetCustom];
+const components = [
+  EMap,
+  EMapView,
+  ESceneView,
+  ETileLayer,
+  EMapImageLayer,
+  EFeatureLayer,
+  EWidgetCustom,
+  EWidgetLegend
+];
+
+export { EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer, EWidgetCustom, EWidgetLegend };
 
 const install = function (Vue) {
   if (install.installed) return;
@@ -16,5 +28,3 @@ const install = function (Vue) {
 };
 
 export default { install };
-
-export { EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer, EWidgetCustom };

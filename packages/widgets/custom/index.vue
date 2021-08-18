@@ -5,16 +5,13 @@
 </template>
 
 <script>
-import emitter from "../../utils/emitter";
+import widgetsMixin from "../../mixins/widgets";
 
 export default {
   name: "e-widget-custom",
+  mixins: [widgetsMixin],
   props: {
-    position: { type: String, default: "top-left" },
     boxShadow: { type: Boolean, default: true }
-  },
-  data() {
-    return {};
   },
   computed: {
     style() {
@@ -23,10 +20,11 @@ export default {
       };
     }
   },
-  mounted() {
-    emitter.on("viewInit", view => {
+  methods: {
+    init(view) {
       view.ui.add(this.$refs.customWidget, this.position);
-    });
+      this.$on("hook:beforeDestroy", () => view.ui.remove(this.instance));
+    }
   }
 };
 </script>
