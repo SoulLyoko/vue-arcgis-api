@@ -6,10 +6,10 @@
       <e-tile-layer :url="topoUrl"></e-tile-layer>
       <!-- <e-map-image-layer :url="topoUrl"></e-map-image-layer> -->
       <e-feature-layer v-bind="featureLayer"></e-feature-layer>
-      <e-widget-legend position="top-right"></e-widget-legend>
-      <e-widget-custom position="top-right" :box-shadow="false">
+      <e-widget position="top-right" :box-shadow="false">
         <h1>widget</h1>
-      </e-widget-custom>
+      </e-widget>
+      <e-widget module="Legend" position="top-right"></e-widget>
     </e-map>
 
     <div v-show="false">

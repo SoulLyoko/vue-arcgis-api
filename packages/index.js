@@ -4,21 +4,11 @@ import ESceneView from "./views/scene-view";
 import ETileLayer from "./layers/tile-layer";
 import EMapImageLayer from "./layers/map-image-layer";
 import EFeatureLayer from "./layers/feature-layer";
-import EWidgetCustom from "./widgets/custom";
-import EWidgetLegend from "./widgets/legend";
+import EWidget from "./widget";
 
-const components = [
-  EMap,
-  EMapView,
-  ESceneView,
-  ETileLayer,
-  EMapImageLayer,
-  EFeatureLayer,
-  EWidgetCustom,
-  EWidgetLegend
-];
+const components = [EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer, EWidget];
 
-export { EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer, EWidgetCustom, EWidgetLegend };
+export { EMap, EMapView, ESceneView, ETileLayer, EMapImageLayer, EFeatureLayer, EWidget };
 
 const install = function (Vue) {
   if (install.installed) return;
