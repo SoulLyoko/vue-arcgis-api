@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import emitter from "../utils/emitter";
+import emitter from "../../utils/emitter";
 
 export default {
   name: "e-widget",

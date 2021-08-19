@@ -7,9 +7,12 @@
       <!-- <e-map-image-layer :url="topoUrl"></e-map-image-layer> -->
       <e-feature-layer v-bind="featureLayer"></e-feature-layer>
       <e-widget position="top-right" :box-shadow="false">
-        <h1>widget</h1>
+        <button @click="openDraw('point')">point</button>
+        <button @click="openDraw('polyline')">polyline</button>
+        <button @click="openDraw('polygon')">polygon</button>
       </e-widget>
       <e-widget module="Legend" position="top-right"></e-widget>
+      <e-draw ref="drawTool" @draw-complete="drawComplete"></e-draw>
     </e-map>
 
     <div v-show="false">
@@ -96,6 +99,12 @@ export default {
         // this.featureLayer.popupTemplate.content = "123";
         // this.viewMode = "scene";
       }, 1000);
+    },
+    openDraw(type) {
+      this.$refs.drawTool.create(type);
+    },
+    drawComplete(e) {
+      console.log("🚀 ~ file: App.vue ~ line 107 ~ drawComplete ~ e", e);
     }
   }
 };
