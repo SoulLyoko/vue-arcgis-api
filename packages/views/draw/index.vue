@@ -1,11 +1,13 @@
 <script>
 import emitter from "../../utils/emitter";
 import Draw from "@arcgis/core/views/draw/Draw";
+import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Graphic from "@arcgis/core/Graphic";
 
 export default {
   name: "e-draw",
   render() {},
+  inject: ["mapRoot"],
   props: {
     //point symbol
     point: {
@@ -49,11 +51,13 @@ export default {
   methods: {
     init(view) {
       this.view = view;
+      this.map = this.mapRoot.map;
       this.instance = new Draw({ view, ...this.$attrs });
+      this.graphicsLayer = new GraphicsLayer({ spatialReference: this.view.spatialReference });
       this.$emit("init", this.instance);
     },
     create(drawAction, drawOptions) {
-      this.view.graphics.removeAll();
+      this.removeAll();
       const action = this.instance.create(drawAction, drawOptions);
       switch (drawAction) {
         case "point":
@@ -76,32 +80,39 @@ export default {
       }
     },
     drawPoint(event) {
-      this.view.graphics.removeAll();
+      this.removeAll();
       const [x, y] = event.coordinates;
       const graphic = new Graphic({
         geometry: { type: "point", x, y, spatialReference: this.view.spatialReference },
         symbol: this.point
       });
-      this.view.graphics.add(graphic);
+      this.add(graphic);
       this.$emit(event.type, { ...event, actionType: "point", graphic });
     },
     drawPolyline(event) {
-      this.view.graphics.removeAll();
+      this.removeAll();
       const graphic = new Graphic({
         geometry: { type: "polyline", paths: event.vertices, spatialReference: this.view.spatialReference },
         symbol: this.polyline
       });
-      this.view.graphics.add(graphic);
+      this.add(graphic);
       this.$emit(event.type, { ...event, actionType: "polyline", graphic });
     },
     drawPolygon(event) {
-      this.view.graphics.removeAll();
+      this.removeAll();
       const graphic = new Graphic({
         geometry: { type: "polygon", rings: event.vertices, spatialReference: this.view.spatialReference },
         symbol: this.polygon
       });
-      this.view.graphics.add(graphic);
+      this.add(graphic);
       this.$emit(event.type, { ...event, actionType: "polygon", graphic });
+    },
+    removeAll() {
+      this.graphicsLayer.removeAll();
+    },
+    add(graphic) {
+      this.graphicsLayer.add(graphic);
+      this.map.add(this.graphicsLayer);
     }
   }
 };
