@@ -9,10 +9,16 @@ module.exports = {
         path: "/"
       },
       {
-        title: "地图",
+        title: "基础地图",
         collapsable: false,
         sidebarDepth: 0,
-        children: ["/base/map"]
+        children: ["/map/map", "/views/map-view", "/views/scene-view"]
+      },
+      {
+        title: "图层",
+        collapsable: false,
+        sidebarDepth: 0,
+        children: ["/layers/tile-layer", "/layers/feature-layer", "/layers/map-image-layer"]
       }
     ]
   }
