@@ -1,4 +1,4 @@
-import EMap from "./base/map";
+import EMap from "./map/map";
 import EMapView from "./views/map-view";
 import ESceneView from "./views/scene-view";
 import ETileLayer from "./layers/tile-layer";

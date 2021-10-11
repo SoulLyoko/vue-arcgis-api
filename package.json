@@ -1,6 +1,6 @@
 {
   "name": "vue-arcgis-api",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "private": false,
   "description": "vue-arcgis-api",
   "keyword": [
@@ -13,33 +13,33 @@
   "license": "MIT",
   "main": "packages/index.js",
   "scripts": {
-    "dev": "npm run dev:cp && vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib --name vue-arcgis --dest lib packages/index.js",
-    "dev:cp": "ncp ./node_modules/@arcgis/core/assets ./public/assets",
+    "arcgis:cp": "ncp ./node_modules/@arcgis/core/assets ./public/assets",
     "docs:cp": "ncp ./node_modules/@arcgis/core/assets ./docs/.vuepress/public/assets",
     "docs:dev": "npm run docs:cp && vuepress dev docs",
     "docs:build": "npm run docs:cp && vuepress build docs"
   },
   "dependencies": {
-    "core-js": "^3.16.0",
+    "core-js": "^3.18.2",
     "mitt": "^3.0.0",
     "vue": "^2.6.14"
   },
   "devDependencies": {
-    "@arcgis/core": "^4.20.2",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
+    "@arcgis/core": "^4.21.2",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-plugin-eslint": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-vue": "^7.15.1",
-    "lint-staged": "^11.1.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.19.1",
+    "lint-staged": "^11.2.1",
     "ncp": "^2.0.0",
-    "prettier": "^2.3.2",
-    "sass": "^1.37.5",
+    "prettier": "^2.4.1",
+    "sass": "^1.42.1",
     "sass-loader": "^10.2.0",
     "vue-template-compiler": "^2.6.14",
     "vuepress": "^1.8.2"

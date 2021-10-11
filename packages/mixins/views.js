@@ -1,8 +1,7 @@
 import { uuid } from "../utils/uuid";
-import emitter from "../utils/emitter";
 
 export default {
-  inject: ["mapRoot"],
+  inject: ["mapRoot", "emitter"],
   data() {
     return {
       module: null,
@@ -38,7 +37,7 @@ export default {
     if (this.map) {
       this.init();
     } else {
-      emitter.on("mapInit", map => {
+      this.emitter.on("mapInit", map => {
         this.map = map;
         this.init();
       });
@@ -65,8 +64,8 @@ export default {
         },
         { deep: true }
       );
+      this.emitter.emit("viewInit", view);
       this.$emit("init", view);
-      emitter.emit("viewInit", view);
     }
   }
 };

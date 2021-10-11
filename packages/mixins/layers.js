@@ -1,7 +1,5 @@
-import emitter from "../utils/emitter";
-
 export default {
-  inject: ["mapRoot"],
+  inject: ["mapRoot", "emitter"],
   render() {},
   data() {
     return {
@@ -17,7 +15,7 @@ export default {
     if (this.map) {
       this.init();
     } else {
-      emitter.on("mapInit", map => {
+      this.emitter.on("mapInit", map => {
         this.map = map;
         this.init();
       });

@@ -6,13 +6,15 @@
 
 <script>
 import Map from "@arcgis/core/Map";
-import emitter from "../../utils/emitter";
+import mitt from "mitt";
+const emitter = mitt();
 
 export default {
   name: "e-map",
   provide() {
     return {
-      mapRoot: this
+      mapRoot: this,
+      emitter
     };
   },
   data() {

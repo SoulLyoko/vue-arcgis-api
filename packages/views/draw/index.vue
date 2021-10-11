@@ -1,5 +1,4 @@
 <script>
-import emitter from "../../utils/emitter";
 import Draw from "@arcgis/core/views/draw/Draw";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Graphic from "@arcgis/core/Graphic";
@@ -7,7 +6,7 @@ import Graphic from "@arcgis/core/Graphic";
 export default {
   name: "e-draw",
   render() {},
-  inject: ["mapRoot"],
+  inject: ["mapRoot", "emitter"],
   props: {
     //point symbol
     point: {
@@ -44,7 +43,7 @@ export default {
     };
   },
   created() {
-    emitter.on("viewInit", view => {
+    this.emitter.on("viewInit", view => {
       this.init(view);
     });
   },
