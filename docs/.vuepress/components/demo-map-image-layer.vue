@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import { EMap, EMapView, EMapImageLayer } from "vue-arcgis-api";
+
 export default {
   name: "demo-map-image-layer",
+  components: { EMap, EMapView, EMapImageLayer },
   data() {
     return {
       center: [0, 0],

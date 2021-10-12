@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import { EMap, EMapView, ETileLayer } from "vue-arcgis-api";
+
 export default {
   name: "demo-tile-layer",
+  components: { EMap, EMapView, ETileLayer },
   data() {
     return {
       center: [0, 0],

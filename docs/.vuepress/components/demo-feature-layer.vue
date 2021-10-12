@@ -8,8 +8,11 @@
 </template>
 
 <script>
+import { EMap, EMapView, EFeatureLayer } from "vue-arcgis-api";
+
 export default {
   name: "demo-feature-layer",
+  components: { EMap, EMapView, EFeatureLayer },
   data() {
     return {
       center: [-73.95, 40.702],

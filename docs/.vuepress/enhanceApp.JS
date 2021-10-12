@@ -1,9 +1,9 @@
 /**
  * 扩展 VuePress 应用
  */
-import VueArcgis from "../../packages";
+// import VueArcgis from "../../packages";
 import esriConfig from "@arcgis/core/config.js";
-esriConfig.assetsPath = "/assets";
+esriConfig.assetsPath = "/vue-arcgis-api/assets";
 import "@arcgis/core/assets/esri/themes/light/main.css";
 
 export default ({
@@ -13,5 +13,5 @@ export default ({
   siteData // 站点元数据
 }) => {
   // ...做一些其他的应用级别的优化
-  Vue.use(VueArcgis);
+  // Vue.use(VueArcgis);
 };

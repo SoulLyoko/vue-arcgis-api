@@ -7,8 +7,11 @@
 </template>
 
 <script>
+import { EMap, EMapView } from "vue-arcgis-api";
+
 export default {
   name: "demo-map-view",
+  components: { EMap, EMapView },
   data() {
     return {
       basemap: "topo",

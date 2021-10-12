@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
   base: "/vue-arcgis-api/",
   title: "vue-arcgis-api文档",
@@ -31,5 +33,12 @@ module.exports = {
         path: "/widgets/widget"
       }
     ]
+  },
+  configureWebpack: {
+    resolve: {
+      alias: {
+        "vue-arcgis-api": path.resolve(__dirname, "../../packages")
+      }
+    }
   }
 };
