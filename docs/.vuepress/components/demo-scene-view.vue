@@ -7,11 +7,8 @@
 </template>
 
 <script>
-import { EMap, ESceneView } from "vue-arcgis-api";
-
 export default {
   name: "demo-scene-view",
-  components: { EMap, ESceneView },
   data() {
     return {
       basemap: "hybrid",

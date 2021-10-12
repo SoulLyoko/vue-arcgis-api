@@ -7,11 +7,8 @@
 </template>
 
 <script>
-import { EWebMap, EMapView } from "vue-arcgis-api";
-
 export default {
   name: "demo-web-map",
-  components: { EWebMap, EMapView },
   data() {
     return {
       portalItem: { id: "e691172598f04ea8881cd2a4adaa45ba" }

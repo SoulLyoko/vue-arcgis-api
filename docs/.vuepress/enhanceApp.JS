@@ -14,4 +14,11 @@ export default ({
 }) => {
   // ...做一些其他的应用级别的优化
   // Vue.use(VueArcgis);
+  Vue.mixin({
+    mounted() {
+      import("../../packages").then(function (m) {
+        Vue.use(m.default);
+      });
+    }
+  });
 };
