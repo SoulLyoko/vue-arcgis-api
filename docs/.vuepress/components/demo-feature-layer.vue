@@ -18,6 +18,7 @@ export default {
       popupTemplate: {
         // autocasts as new PopupTemplate()
         title: "{NAME} in {COUNTY}",
+        // content: new Promise(resolve => this.$nextTick(() => resolve(this.$refs.content))) // promise
         content: [
           {
             // It is also possible to set the fieldInfos outside of the content

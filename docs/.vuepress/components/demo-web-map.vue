@@ -1,19 +1,17 @@
 <template>
   <div class="mapDiv">
-    <e-map :basemap="basemap">
-      <e-map-view :center="center" :zoom="zoom"></e-map-view>
-    </e-map>
+    <e-web-map :portalItem="portalItem">
+      <e-map-view></e-map-view>
+    </e-web-map>
   </div>
 </template>
 
 <script>
 export default {
-  name: "demo-map",
+  name: "demo-web-map",
   data() {
     return {
-      basemap: "topo",
-      center: [0, 0],
-      zoom: 0
+      portalItem: { id: "e691172598f04ea8881cd2a4adaa45ba" }
     };
   }
 };
