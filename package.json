@@ -16,10 +16,9 @@
     "dev": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib --name vue-arcgis --dest lib packages/index.js",
-    "arcgis:cp": "ncp ./node_modules/@arcgis/core/assets ./public/assets",
-    "docs:cp": "ncp ./node_modules/@arcgis/core/assets ./docs/.vuepress/public/assets",
-    "docs:dev": "npm run readme:cp && npm run docs:cp && vuepress dev docs",
-    "docs:build": "npm run readme:cp && npm run docs:cp && vuepress build docs",
+    "arcgis:cp": "ncp ./node_modules/@arcgis/core/assets ./public/assets && ncp ./node_modules/@arcgis/core/assets ./docs/.vuepress/public/assets",
+    "docs:dev": "npm run readme:cp && arcgis:cp && vuepress dev docs",
+    "docs:build": "npm run readme:cp && arcgis:cp && vuepress build docs",
     "readme:cp": "ncp ./README.md ./docs/README.md"
   },
   "dependencies": {
