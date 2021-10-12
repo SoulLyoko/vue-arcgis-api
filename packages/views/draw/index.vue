@@ -6,7 +6,7 @@ import Graphic from "@arcgis/core/Graphic";
 export default {
   name: "e-draw",
   render() {},
-  inject: ["mapRoot", "emitter"],
+  inject: ["mapRoot"],
   props: {
     //point symbol
     point: {
@@ -43,14 +43,13 @@ export default {
     };
   },
   created() {
-    this.emitter.on("viewInit", view => {
-      this.init(view);
+    this.mapRoot.$on("viewInit", () => {
+      this.init();
     });
   },
   methods: {
-    init(view) {
-      this.view = view;
-      this.map = this.mapRoot.map;
+    init() {
+      const view = this.mapRoot.view;
       this.instance = new Draw({ view, ...this.$attrs });
       this.graphicsLayer = new GraphicsLayer({ spatialReference: this.view.spatialReference });
       this.$emit("init", this.instance);
@@ -111,7 +110,7 @@ export default {
     },
     add(graphic) {
       this.graphicsLayer.add(graphic);
-      this.map.add(this.graphicsLayer);
+      this.mapRoot.map.add(this.graphicsLayer);
     }
   }
 };

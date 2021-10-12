@@ -9,7 +9,7 @@ import modules from "./modules";
 
 export default {
   name: "e-widget",
-  inject: ["emitter"],
+  inject: ["mapRoot"],
   props: {
     position: { type: String, default: "top-left" },
     module: { type: String },
@@ -28,16 +28,17 @@ export default {
     }
   },
   mounted() {
-    this.emitter.on("viewInit", view => {
+    this.mapRoot.$on("viewInit", () => {
       if (this.$slots.default) {
-        this.initCustom(view);
+        this.initCustom();
       } else if (this.module) {
-        this.module && this.initModule(view);
+        this.module && this.initModule();
       }
     });
   },
   methods: {
-    async initModule(view) {
+    async initModule() {
+      const view = this.mapRoot.view;
       const module = modules[this.module];
       this.instance = new module({ view, ...this.$attrs });
       view.ui.add(this.instance, this.position);
@@ -52,7 +53,8 @@ export default {
       );
       this.$on("hook:beforeDestroy", () => view.ui.remove(this.instance));
     },
-    initCustom(view) {
+    initCustom() {
+      const view = this.mapRoot.view;
       view.ui.add(this.$refs.customWidget, this.position);
       this.$on("hook:beforeDestroy", () => view.ui.remove(this.$refs.customWidget));
     }

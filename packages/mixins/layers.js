@@ -1,22 +1,19 @@
 export default {
-  inject: ["mapRoot", "emitter"],
+  inject: ["mapRoot"],
   render() {},
   data() {
     return {
       module: null,
-      map: null,
       instance: null,
       events: ["layerview-create", "layerview-create-error", "layerview-destroy"],
       otherEvents: []
     };
   },
   mounted() {
-    this.map = this.map || this.mapRoot.map;
-    if (this.map) {
+    if (this.mapRoot.map) {
       this.init();
     } else {
-      this.emitter.on("mapInit", map => {
-        this.map = map;
+      this.mapRoot.$on("mapInit", () => {
         this.init();
       });
     }
@@ -33,12 +30,12 @@ export default {
     }
   },
   beforeDestroy() {
-    this.map.remove(this.instance);
+    this.mapRoot.map.remove(this.instance);
   },
   methods: {
     init() {
       this.instance = new this.module(this.$attrs);
-      this.map.add(this.instance);
+      this.mapRoot.map.add(this.instance);
       [...this.events, ...this.otherEvents].forEach(event => {
         this.instance.on(event, e => {
           this.$emit(event, e);

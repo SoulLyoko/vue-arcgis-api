@@ -1,11 +1,10 @@
 import { uuid } from "../utils/uuid";
 
 export default {
-  inject: ["mapRoot", "emitter"],
+  inject: ["mapRoot"],
   data() {
     return {
       module: null,
-      map: null,
       containerId: uuid(),
       events: [
         "blur",
@@ -33,12 +32,10 @@ export default {
     };
   },
   mounted() {
-    this.map = this.map || this.mapRoot.map;
-    if (this.map) {
+    if (this.mapRoot.map) {
       this.init();
     } else {
-      this.emitter.on("mapInit", map => {
-        this.map = map;
+      this.mapRoot.$on("mapInit", () => {
         this.init();
       });
     }
@@ -47,7 +44,7 @@ export default {
     async init() {
       const view = new this.module({
         container: this.containerId, // References the ID of a DOM element
-        map: this.map, // References a Map instance
+        map: this.mapRoot.map, // References a Map instance
         ...this.$attrs
       });
       [...this.events, ...this.otherEvents].forEach(event => {
@@ -64,7 +61,7 @@ export default {
         },
         { deep: true }
       );
-      this.emitter.emit("viewInit", view);
+      this.mapRoot.$emit("rootViewInit", view);
       this.$emit("init", view);
     }
   }
