@@ -30,7 +30,7 @@ import Print from "@arcgis/core/widgets/Print";
 import ScaleBar from "@arcgis/core/widgets/ScaleBar";
 import ScaleRangeSlider from "@arcgis/core/widgets/ScaleRangeSlider";
 import Search from "@arcgis/core/widgets/Search";
-import ShadowCast from "@arcgis/core/widgets/ShadowCast";
+import ShadowAccumulation from "@arcgis/core/widgets/ShadowAccumulation";
 import Sketch from "@arcgis/core/widgets/Sketch";
 import Slice from "@arcgis/core/widgets/Slice";
 import Swipe from "@arcgis/core/widgets/Swipe";
@@ -71,7 +71,7 @@ export default {
   ScaleBar,
   ScaleRangeSlider,
   Search,
-  ShadowCast,
+  ShadowAccumulation,
   Sketch,
   Slice,
   Swipe,

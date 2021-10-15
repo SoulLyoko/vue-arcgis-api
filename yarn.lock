@@ -7,19 +7,18 @@
   resolved "https://registry.npmjs.org/@a11y/focus-trap/-/focus-trap-1.0.5.tgz#0748189c37ca21255c702aa5de3ee00ed4821d22"
   integrity sha512-3JOd6g+BALysWS8LNf0qdB8ltR651H/RCLAvUmfS0LIHwHO579XfjZUIZbURYiAZrcbp1CBAq4QZ2YwKNQZ1hw==
 
-"@arcgis/core@^4.21.2":
-  version "4.21.2"
-  resolved "https://registry.yarnpkg.com/@arcgis/core/-/core-4.21.2.tgz#0fbfe17f981ff4247ac7770f8e662e716260b8bb"
-  integrity sha512-L3Rc84wOFsMcljrydVKc1jkgYQSO+ru4Kgr7tCsK+YLVGWNeggLRh2XeGNIuXOEklaMxdWIBZ+Kw9424K+JQyw==
+"@arcgis/core@4.20.2":
+  version "4.20.2"
+  resolved "https://registry.yarnpkg.com/@arcgis/core/-/core-4.20.2.tgz#baba4066b90cb9f6b6b7c0a43ff6e6eee14af919"
+  integrity sha512-LmHNLhJRBri5UpLfmfSFhQ7B3O/lq0B0Qtwkdy3gJUJ1DOZBfo0c5ezpSfqsHjTTDxTxSyMF5fl8Y1H4+UagZQ==
   dependencies:
-    "@esri/arcgis-html-sanitizer" "~2.7.0"
-    "@esri/calcite-colors" "~6.0.1"
-    "@esri/calcite-components" "1.0.0-beta.62"
-    "@popperjs/core" "~2.9.3"
-    focus-trap "~6.6.1"
-    luxon "~2.0.2"
+    "@esri/arcgis-html-sanitizer" "~2.6.1"
+    "@esri/calcite-colors" "~6.0.0"
+    "@esri/calcite-components" "1.0.0-beta.56"
+    "@popperjs/core" "~2.9.2"
+    focus-trap "~6.5.1"
     moment "~2.29.1"
-    sortablejs "~1.14.0"
+    sortablejs "~1.13.0"
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
@@ -944,31 +943,31 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@esri/arcgis-html-sanitizer@~2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@esri/arcgis-html-sanitizer/-/arcgis-html-sanitizer-2.7.0.tgz#ab30a2aba04f5f1b3d261acc070dfb3efd6d2bc5"
-  integrity sha512-T3D2Gn5n7Wsu3YmsPtw9F2HmxI2McebkYHOAo9D7HF6bHBcca0GpBsDaRgYTmQ68ABOsAIIvbFfBY6aDyyHYbw==
+"@esri/arcgis-html-sanitizer@~2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@esri/arcgis-html-sanitizer/-/arcgis-html-sanitizer-2.6.1.tgz#49d327e1ee0b1c4e038a56baca4ec248663dc31e"
+  integrity sha512-dB0kFaRxIh4YSR6P5+jhkRm1UD4HxnexSOz3D1sgDiTq41YgWezMSIrifO/M83JwpTKd0U28qEf8hKepmldvZg==
   dependencies:
     lodash.isplainobject "^4.0.6"
     xss "^1.0.9"
 
-"@esri/calcite-colors@~6.0.1":
+"@esri/calcite-colors@~6.0.0":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@esri/calcite-colors/-/calcite-colors-6.0.1.tgz#770ec4d77bbbd4da32a66450eb93f4c780c0ff28"
   integrity sha512-iGUIIpeMCJSTDGw4ZsxLwwxkml0QzOUJTtysjRryGbhSt183NEtwWKS+yQO19utXQz5LbQWjoav6x6CsawElkw==
 
-"@esri/calcite-components@1.0.0-beta.62":
-  version "1.0.0-beta.62"
-  resolved "https://registry.yarnpkg.com/@esri/calcite-components/-/calcite-components-1.0.0-beta.62.tgz#c284d3b979748a0f9279be39e40255d783a796bf"
-  integrity sha512-GCDIX6TKgjAc3MZ/nKZIheCEH2a1vsM+B1cldczEXgOqGeGP+sOgGuJRV6PzbpoYnvAvklsGpXjgVKNnkacIFw==
+"@esri/calcite-components@1.0.0-beta.56":
+  version "1.0.0-beta.56"
+  resolved "https://registry.yarnpkg.com/@esri/calcite-components/-/calcite-components-1.0.0-beta.56.tgz#94ffd478c73894318841b82a05ec1bf53b39552b"
+  integrity sha512-p3p796uJ85IqlFmkEVKmDPZGEdHWFxRilLmz6aS2nVDWx3sAD4oct9FYuV+jT6JWQBDBG/Y4YRgTS+F9SwWlLg==
   dependencies:
     "@a11y/focus-trap" "1.0.5"
-    "@popperjs/core" "2.9.3"
+    "@popperjs/core" "2.9.2"
     "@stencil/core" "2.6.0"
-    "@types/color" "3.0.2"
-    color "4.0.1"
+    "@types/color" "3.0.1"
+    color "3.1.3"
     lodash-es "4.17.21"
-    sortablejs "1.14.0"
+    sortablejs "1.13.0"
 
 "@hapi/address@2.x.x":
   version "2.1.4"
@@ -1038,7 +1037,12 @@
   resolved "https://registry.nlark.com/@nodelib/fs.stat/download/@nodelib/fs.stat-1.1.3.tgz?cache=0&sync_timestamp=1622792655362&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40nodelib%2Ffs.stat%2Fdownload%2F%40nodelib%2Ffs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha1-K1o6s/kYzKSKjHVMCBaOPwPrphs=
 
-"@popperjs/core@2.9.3", "@popperjs/core@~2.9.3":
+"@popperjs/core@2.9.2":
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
+  integrity sha512-VZMYa7+fXHdwIq1TDhSXoVmSPEGM/aa+6Aiq3nVVJ9bXr24zScr+NlKFKC3iPljA7ho/GAZr+d2jOf5GIRC30Q==
+
+"@popperjs/core@~2.9.2":
   version "2.9.3"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.3.tgz#8b68da1ebd7fc603999cf6ebee34a4899a14b88e"
   integrity sha512-xDu17cEfh7Kid/d95kB6tZsLOmSWKCZKtprnhVepjsSaCij+lM3mItSJDuuHDMbCWTh8Ejmebwb+KONcCJ0eXQ==
@@ -1095,10 +1099,10 @@
   resolved "https://registry.npmjs.org/@types/color-name/-/color-name-1.1.1.tgz#1c1261bbeaa10a8055bbc5d8ab84b7b2afc846a0"
   integrity sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
 
-"@types/color@3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@types/color/-/color-3.0.2.tgz#3779043e782f562aa9157b5fc6bd07e14fd8e7f3"
-  integrity sha512-INiJl6sfNn8iyC5paxVzqiVUEj2boIlFki02uRTAkKwAj++7aAF+ZfEv/XrIeBa0XI/fTZuDHW8rEEcEVnON+Q==
+"@types/color@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@types/color/-/color-3.0.1.tgz#2900490ed04da8116c5058cd5dba3572d5a25071"
+  integrity sha512-oeUWVaAwI+xINDUx+3F2vJkl/vVB03VChFF/Gl3iQCdbcakjuoJyMOba+3BXRtnBhxZ7uBYqQBi9EpLnvSoztA==
   dependencies:
     "@types/color-convert" "*"
 
@@ -2918,10 +2922,10 @@ collection-visit@^1.0.0:
     map-visit "^1.0.0"
     object-visit "^1.0.0"
 
-color-convert@^1.9.0, color-convert@^1.9.3:
+color-convert@^1.9.0, color-convert@^1.9.1, color-convert@^1.9.3:
   version "1.9.3"
-  resolved "https://registry.npm.taobao.org/color-convert/download/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
-  integrity sha1-u3GFBpDh8TZWfeYp0tVHHe2kweg=
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
+  integrity sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==
   dependencies:
     color-name "1.1.3"
 
@@ -2942,21 +2946,21 @@ color-name@^1.0.0, color-name@~1.1.4:
   resolved "https://registry.npm.taobao.org/color-name/download/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=
 
-color-string@^1.6.0:
+color-string@^1.5.4, color-string@^1.6.0:
   version "1.6.0"
-  resolved "https://registry.nlark.com/color-string/download/color-string-1.6.0.tgz#c3915f61fe267672cb7e1e064c9d692219f6c312"
-  integrity sha1-w5FfYf4mdnLLfh4GTJ1pIhn2wxI=
+  resolved "https://registry.yarnpkg.com/color-string/-/color-string-1.6.0.tgz#c3915f61fe267672cb7e1e064c9d692219f6c312"
+  integrity sha512-c/hGS+kRWJutUBEngKKmk4iH3sD59MBkoxVapS/0wgpCz2u7XsNloxknyvBhzwEs1IbV36D9PwqLPJ2DTu3vMA==
   dependencies:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color@4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/color/-/color-4.0.1.tgz#21df44cd10245a91b1ccf5ba031609b0e10e7d67"
-  integrity sha512-rpZjOKN5O7naJxkH2Rx1sZzzBgaiWECc6BYXjeCE6kF0kcASJYbUq02u7JqIHwCb/j3NhV+QhRL2683aICeGZA==
+color@3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/color/-/color-3.1.3.tgz#ca67fb4e7b97d611dcde39eceed422067d91596e"
+  integrity sha512-xgXAcTHa2HeFCGLE9Xs/R82hujGtu9Jd9x4NW3T34+OMs7VoPsjwzRczKHvTAHeJwWFwX5j15+MgAppE8ztObQ==
   dependencies:
-    color-convert "^2.0.1"
-    color-string "^1.6.0"
+    color-convert "^1.9.1"
+    color-string "^1.5.4"
 
 color@^3.0.0:
   version "3.2.1"
@@ -4577,12 +4581,12 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-focus-trap@~6.6.1:
-  version "6.6.1"
-  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.6.1.tgz#761ce2c82ddd72beeb049e968bc8414e25b704aa"
-  integrity sha512-x9BWuAeF5UrfWuYKJ3jYrjcVYSYptS9CqtxH5IH7lPlZrMsaugKeAa0HtoZSBZe5DmeTMx2m0qY464ZMzqarzw==
+focus-trap@~6.5.1:
+  version "6.5.1"
+  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.5.1.tgz#2d2bb91198f17e8bc52070f1fb48ac36be4230b5"
+  integrity sha512-q57JebeQXVThn9DWvWLP2rUwuArvk8w3PyqZLSddto0thmVmklFzYJQO97Aq3pUcWkTXjflUa88fT0CrASsaHQ==
   dependencies:
-    tabbable "^5.2.1"
+    tabbable "^5.2.0"
 
 follow-redirects@^1.0.0:
   version "1.14.1"
@@ -6248,11 +6252,6 @@ lru-cache@^6.0.0:
   integrity sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==
   dependencies:
     yallist "^4.0.0"
-
-luxon@~2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-2.0.2.tgz#11f2cd4a11655fdf92e076b5782d7ede5bcdd133"
-  integrity sha512-ZRioYLCgRHrtTORaZX1mx+jtxKtKuI5ZDvHNAmqpUzGqSrR+tL4FVLn/CUGMA3h0+AKD1MAxGI5GnCqR5txNqg==
 
 make-dir@^2.0.0:
   version "2.1.0"
@@ -8640,10 +8639,10 @@ sort-keys@^2.0.0:
   dependencies:
     is-plain-obj "^1.0.0"
 
-sortablejs@1.14.0, sortablejs@~1.14.0:
-  version "1.14.0"
-  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.14.0.tgz#6d2e17ccbdb25f464734df621d4f35d4ab35b3d8"
-  integrity sha512-pBXvQCs5/33fdN1/39pPL0NZF20LeRbLQ5jtnheIPN9JQAaufGjKdWduZn4U7wCtVuzKhmRkI0DFYHYRbB2H1w==
+sortablejs@1.13.0, sortablejs@~1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.13.0.tgz#3ab2473f8c69ca63569e80b1cd1b5669b51269e9"
+  integrity sha512-RBJirPY0spWCrU5yCmWM1eFs/XgX2J5c6b275/YyxFRgnzPhKl/TDeU2hNR8Dt7ITq66NRPM4UlOt+e5O4CFHg==
 
 source-list-map@^2.0.0:
   version "2.0.1"
@@ -9075,7 +9074,7 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tabbable@^5.2.1:
+tabbable@^5.2.0:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/tabbable/-/tabbable-5.2.1.tgz#e3fda7367ddbb172dcda9f871c0fdb36d1c4cd9c"
   integrity sha512-40pEZ2mhjaZzK0BnI+QGNjJO8UYx9pP5v7BGe17SORTO0OEuuaAwQTkAp8whcZvqon44wKFOikD+Al11K3JICQ==

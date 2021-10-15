@@ -39,7 +39,9 @@ export default {
   },
   data() {
     return {
-      instance: null
+      instance: null,
+      graphicsLayer: null,
+      graphicsLayers: []
     };
   },
   created() {
@@ -51,10 +53,12 @@ export default {
     init() {
       const view = this.mapRoot.view;
       this.instance = new Draw({ view, ...this.$attrs });
-      this.graphicsLayer = new GraphicsLayer({ spatialReference: this.view.spatialReference });
       this.$emit("init", this.instance);
     },
     create(drawAction, drawOptions) {
+      const view = this.mapRoot.view;
+      this.graphicsLayer = new GraphicsLayer({ spatialReference: view.spatialReference });
+      this.graphicsLayers.push(this.graphicsLayer);
       this.removeAll();
       const action = this.instance.create(drawAction, drawOptions);
       switch (drawAction) {
@@ -78,39 +82,46 @@ export default {
       }
     },
     drawPoint(event) {
-      this.removeAll();
+      this.remove();
       const [x, y] = event.coordinates;
       const graphic = new Graphic({
-        geometry: { type: "point", x, y, spatialReference: this.view.spatialReference },
+        geometry: { type: "point", x, y, spatialReference: this.mapRoot.view.spatialReference },
         symbol: this.point
       });
       this.add(graphic);
       this.$emit(event.type, { ...event, actionType: "point", graphic });
     },
     drawPolyline(event) {
-      this.removeAll();
+      this.remove();
       const graphic = new Graphic({
-        geometry: { type: "polyline", paths: event.vertices, spatialReference: this.view.spatialReference },
+        geometry: { type: "polyline", paths: event.vertices, spatialReference: this.mapRoot.view.spatialReference },
         symbol: this.polyline
       });
       this.add(graphic);
       this.$emit(event.type, { ...event, actionType: "polyline", graphic });
     },
     drawPolygon(event) {
-      this.removeAll();
+      this.remove();
       const graphic = new Graphic({
-        geometry: { type: "polygon", rings: event.vertices, spatialReference: this.view.spatialReference },
+        geometry: { type: "polygon", rings: event.vertices, spatialReference: this.mapRoot.view.spatialReference },
         symbol: this.polygon
       });
       this.add(graphic);
       this.$emit(event.type, { ...event, actionType: "polygon", graphic });
     },
-    removeAll() {
-      this.graphicsLayer.removeAll();
-    },
     add(graphic) {
       this.graphicsLayer.add(graphic);
       this.mapRoot.map.add(this.graphicsLayer);
+    },
+    // 清除当前图层的图形
+    remove() {
+      this.graphicsLayer.removeAll();
+    },
+    // 清除所有图层的图形
+    clear() {
+      this.graphicsLayers.forEach(layer => {
+        layer.removeAll();
+      });
     }
   }
 };

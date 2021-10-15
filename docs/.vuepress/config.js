@@ -1,5 +1,3 @@
-const path = require("path");
-
 module.exports = {
   base: "/vue-arcgis-api/",
   title: "vue-arcgis-api文档",
@@ -20,7 +18,7 @@ module.exports = {
         title: "Views 视图",
         collapsable: false,
         sidebarDepth: 0,
-        children: ["/views/map-view", "/views/scene-view"]
+        children: ["/views/map-view", "/views/scene-view", "/views/draw"]
       },
       {
         title: "Layers 图层",
@@ -33,12 +31,5 @@ module.exports = {
         path: "/widgets/widget"
       }
     ]
-  },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        "vue-arcgis-api": path.resolve(__dirname, "../../packages")
-      }
-    }
   }
 };
