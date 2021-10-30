@@ -20,7 +20,7 @@
     "cp:readme": "ncp ./README.md ./docs/index.md",
     "cp:log": "ncp ./CHANGELOG.md ./docs/CHANGELOG.md",
     "cp:arcgis": "ncp ./node_modules/@arcgis/core/assets ./docs/public/assets",
-    "cp":"npm run cp:readme && npm run cp:log && npm run cp:arcgis"
+    "cp": "npm run cp:readme && npm run cp:log"
   },
   "dependencies": {
     "mitt": "^3.0.0",
