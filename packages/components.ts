@@ -1,0 +1,9 @@
+export { default as EMap } from "./map/Map/index.vue";
+export { default as EWebMap } from "./map/WebMap/index.vue";
+export { default as EMapView } from "./views/MapView/index.vue";
+export { default as ESceneView } from "./views/SceneView/index.vue";
+export { default as EFeatureLayer } from "./layers/FeatureLayer/index.vue";
+export { default as EMapImageLayer } from "./layers/MapImageLayer/index.vue";
+export { default as ETileLayer } from "./layers/TileLayer/index.vue";
+export { default as EWidget } from "./widgets/Widget/index.vue";
+export { default as EDraw } from "./views/Draw/index.vue";

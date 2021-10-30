@@ -2,6 +2,8 @@
 
 ## 示例
 
-<<< @/docs/.vuepress/components/demo-web-map.vue
-
 <demo-web-map></demo-web-map>
+
+<code-details>
+<<< @/.vitepress/components/map/web-map/index.vue#snippet
+</code-details>

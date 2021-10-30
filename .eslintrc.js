@@ -1,17 +1,39 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
+    es2021: true,
     node: true
   },
-  extends: ["plugin:vue/essential", "eslint:recommended", "@vue/prettier"],
-  parserOptions: {
-    parser: "babel-eslint"
+  globals: {
+    defineProps: "readonly",
+    defineEmits: "readonly",
+    defineExpose: "readonly"
   },
+  parser: "vue-eslint-parser",
+  parserOptions: {
+    parser: "@typescript-eslint/parser",
+    ecmaVersion: 2021,
+    ecmaFeatures: {
+      jsx: true
+    }
+  },
+  extends: [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  plugins: ["prettier"],
   rules: {
     "prettier/prettier": 1,
-    "no-unused-vars": 1,
-    "vue/no-unused-vars": 1,
-    "vue/no-unused-components": 1,
-    "vue/require-render-return": 0
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-empty-interface": 0,
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "vue/require-render-return": 0,
+    "vue/require-explicit-emits": 0,
+    "vue/require-default-prop": 0,
+    "vue/attribute-hyphenation": 0
   }
 };

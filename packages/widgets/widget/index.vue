@@ -1,63 +1,69 @@
-<template>
-  <div class="e-widget-custom" ref="customWidget" :style="style" v-if="$slots.default">
-    <slot></slot>
-  </div>
-</template>
+<script lang="ts">
+import { defineComponent, h, inject, onMounted, onUnmounted } from "vue-demi";
+import View from "@arcgis/core/views/View";
+import { MapEmitter, MapProvide } from "../../types";
+import { useWatch } from "../../use";
+import widgetsModule from "./modules";
 
-<script>
-import modules from "./modules";
-
-export default {
-  name: "e-widget",
-  inject: ["mapRoot"],
+export default defineComponent({
+  name: "EWidget",
   props: {
-    position: { type: String, default: "top-left" },
     module: { type: String },
-    boxShadow: { type: Boolean, default: true }
+    position: { type: String, default: "top-left" }
   },
-  data() {
-    return {
-      instance: null
-    };
-  },
-  computed: {
-    style() {
-      return {
-        boxShadow: this.boxShadow ? "0 1px 2px rgb(0 0 0 / 30%)" : "none"
-      };
-    }
-  },
-  mounted() {
-    this.mapRoot.$on("viewInit", () => {
-      if (this.$slots.default) {
-        this.initCustom();
-      } else if (this.module) {
-        this.module && this.initModule();
+  setup(props, { attrs, slots }) {
+    const mapRoot = inject<MapProvide>("mapRoot");
+    const mapEmitter = inject<MapEmitter>("mapEmitter");
+    let widget: any = h(
+      "div",
+      {
+        class: "e-widget-custom"
+      },
+      [slots.default?.()]
+    );
+
+    onMounted(() => {
+      if (mapRoot?.view) {
+        init(mapRoot?.view);
+      } else {
+        mapEmitter?.on("rootViewInit", (view: View) => {
+          init(view);
+        });
       }
     });
-  },
-  methods: {
-    async initModule() {
-      const view = this.mapRoot.view;
-      const module = modules[this.module];
-      this.instance = new module({ view, ...this.$attrs });
-      view.ui.add(this.instance, this.position);
-      this.$watch(
-        "$attrs",
-        val => {
-          Object.keys(val).forEach(key => {
-            this.instance[key] = val[key];
-          });
-        },
-        { deep: true }
-      );
-      this.$on("hook:beforeDestroy", () => view.ui.remove(this.instance));
-    },
-    initCustom() {
-      const view = this.mapRoot.view;
-      view.ui.add(this.$refs.customWidget, this.position);
-      this.$on("hook:beforeDestroy", () => view.ui.remove(this.$refs.customWidget));
+
+    onUnmounted(() => {
+      mapRoot?.view?.ui.remove(widget);
+    });
+
+    function init(view: View) {
+      if (slots.default) {
+        initCustom(view);
+      } else if (props.module) {
+        initModule(view);
+      }
     }
+
+    async function initModule(view: View) {
+      // @ts-ignore
+      const Module = widgetsModule[props.module];
+      widget = new Module({ view, ...attrs });
+      view.ui.add(widget, props.position);
+      useWatch({ attrs, instance: widget });
+    }
+
+    function initCustom(view: View) {
+      // @ts-ignore: VNode.elm in Vue2
+      view.ui.add(widget.el || widget.elm, props.position);
+    }
+
+    return () => {
+      if (slots.default) {
+        return widget;
+      } else {
+        return;
+      }
+    };
   }
-};
+});
 </script>

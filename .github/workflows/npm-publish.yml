@@ -10,10 +10,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # - name: Install and Build
-      #   run: |
-      #     yarn 
-      #     yarn build
+      - name: Install and Build
+        run: |
+          yarn 
+          yarn build
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1

@@ -1,27 +1,9 @@
-.DS_Store
 node_modules
+.DS_Store
 dist
+dist-ssr
+*.local
 lib
-public/assets
-docs/.vuepress/public/assets
-
-
-# local env files
-.env.local
-.env.*.local
-
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-
-# Editor directories and files
-.idea
-.vscode
 .history
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+public/assets
+docs/public/assets

@@ -1,74 +1,67 @@
 {
   "name": "vue-arcgis-api",
-  "version": "0.0.16",
-  "private": false,
+  "version": "0.1.0",
   "description": "vue-arcgis-api",
-  "keyword": [
-    "vue",
-    "component",
-    "arcgis",
-    "arcgis-api"
-  ],
-  "author": "Lyoko <519052532@qq.com>",
+  "author": "SoulLyoko <519052532@qq.com>",
+  "private": false,
   "license": "MIT",
-  "main": "packages/index.js",
+  "main": "lib/index.umd.js",
+  "keywords": [],
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name vue-arcgis --dest lib packages/index.js",
-    "arcgis:cp": "ncp ./node_modules/@arcgis/core/assets ./public/assets && ncp ./node_modules/@arcgis/core/assets ./docs/.vuepress/public/assets",
-    "docs:dev": "npm run readme:cp && npm run arcgis:cp && vuepress dev docs",
-    "docs:build": "npm run readme:cp && npm run arcgis:cp && vuepress build docs",
-    "readme:cp": "ncp ./README.md ./docs/README.md"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview",
+    "docs:dev": "npm run cp && vitepress dev docs",
+    "docs:build": "npm run cp && vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "lint": "eslint --ext .ts,.vue .",
+    "prepare": "husky install",
+    "fix": "vue-demi-fix",
+    "cp:readme": "ncp ./README.md ./docs/index.md",
+    "cp:log": "ncp ./CHANGELOG.md ./docs/CHANGELOG.md",
+    "cp:arcgis": "ncp ./node_modules/@arcgis/core/assets ./docs/public/assets",
+    "cp":"npm run cp:readme && npm run cp:log && npm run cp:arcgis"
   },
   "dependencies": {
-    "core-js": "^3.18.2",
-    "vue": "^2.6.14"
+    "mitt": "^3.0.0",
+    "vue-demi": "^0.12.0"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.3.0",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "@arcgis/core": "4.20.2",
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-eslint": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.32.0",
+    "@arcgis/core": "^4.21.2",
+    "@types/node": "^16.11.6",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "@vitejs/plugin-vue": "^1.9.4",
+    "@vue/compiler-sfc": "3.2.20",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^7.19.1",
-    "lint-staged": "^11.2.3",
+    "eslint-plugin-vue": "^7.20.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
     "ncp": "^2.0.0",
     "prettier": "^2.4.1",
-    "sass": "^1.42.1",
-    "sass-loader": "^10.2.0",
-    "vue-template-compiler": "^2.6.14",
-    "vuepress": "^1.8.2"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended",
-      "@vue/prettier"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+    "typescript": "^4.4.4",
+    "vite": "^2.6.13",
+    "vitepress": "^0.20.0",
+    "vue": "^3.2.20",
+    "vue-dts-gen": "^0.3.0",
+    "vue-tsc": "^0.3.0",
+    "vue2": "npm:vue@2"
   },
   "lint-staged": {
-    "*.{js,jsx,vue}": [
-      "vue-cli-service lint",
+    "*.{ts,vue}": [
+      "prettier --write",
+      "eslint --fix",
       "git add"
     ]
   }
