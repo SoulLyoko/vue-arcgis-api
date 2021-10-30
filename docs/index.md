@@ -7,7 +7,7 @@
 
 ## 安装
 
-```bash
+```sh
 yarn add @arcgis/core ncp --dev
 yarn add vue-arcgis-api
 ```
