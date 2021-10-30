@@ -2,7 +2,7 @@ name: Deply To gh-pages
 on:
   push:
     branches:
-      - master
+      - vite
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
