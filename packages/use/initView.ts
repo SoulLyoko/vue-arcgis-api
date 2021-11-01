@@ -65,7 +65,7 @@ export function useInitView({
       "div",
       {
         id: containerId,
-        style: { width: "100%", height: "100%" }
+        style: "width:100%;height:100%"
       },
       slots.default?.()
     );

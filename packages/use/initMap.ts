@@ -25,7 +25,7 @@ export function useInitMap({ emit, attrs, slots, Module }: SetupContext & { Modu
     h(
       "div",
       {
-        style: { width: "100%", height: "100%" }
+        style: "width:100%;height:100%"
       },
       slots.default?.()
     );
