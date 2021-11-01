@@ -64,6 +64,7 @@ export function useInitView({
     h(
       "div",
       {
+        attrs: { id: containerId },
         id: containerId,
         style: "width:100%;height:100%"
       },
