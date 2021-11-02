@@ -1,11 +1,5 @@
-import { App } from "vue-demi";
-import * as components from "./components";
-export * from "./components";
+import { default as install } from "./install";
 
-export default {
-  install: (app: App): void => {
-    Object.values(components).forEach(component => {
-      app.component(component.name, component);
-    });
-  }
-};
+export default install;
+
+export * from "./components";
