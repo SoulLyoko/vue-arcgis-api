@@ -1,11 +1,11 @@
 {
   "name": "vue-arcgis-api",
-  "version": "0.1.4-beta.2",
+  "version": "0.1.4",
   "description": "vue-arcgis-api",
   "author": "SoulLyoko <519052532@qq.com>",
   "private": false,
   "license": "MIT",
-  "main": "lib/index.es.js",
+  "main": "lib/index.umd.js",
   "keywords": [
     "vue",
     "arcgis"
