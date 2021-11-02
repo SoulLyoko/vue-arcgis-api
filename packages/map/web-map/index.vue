@@ -1,14 +1,12 @@
-<script>
+<script lang="ts">
+import { defineComponent } from "vue-demi";
 import WebMap from "@arcgis/core/WebMap";
-import mapMixin from "../../mixins/map";
+import { useInitMap } from "../../use";
 
-export default {
-  name: "e-web-map",
-  mixins: [mapMixin],
-  data() {
-    return {
-      module: WebMap
-    };
+export default defineComponent({
+  name: "EWebMap",
+  setup(props, context) {
+    return useInitMap({ ...context, Module: WebMap });
   }
-};
+});
 </script>

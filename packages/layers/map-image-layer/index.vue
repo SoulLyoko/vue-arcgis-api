@@ -1,14 +1,12 @@
-<script>
+<script lang="ts">
+import { defineComponent } from "vue-demi";
 import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
-import layerMixin from "../../mixins/layers";
+import { useInitLayer } from "../../use";
 
-export default {
-  name: "e-map-image-layer",
-  mixins: [layerMixin],
-  data() {
-    return {
-      module: MapImageLayer
-    };
+export default defineComponent({
+  name: "EMapImageLayer",
+  setup(props, context) {
+    return useInitLayer({ ...context, Module: MapImageLayer });
   }
-};
+});
 </script>

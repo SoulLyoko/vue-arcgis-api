@@ -1,20 +1,12 @@
-<template>
-  <div :id="$attrs.id || containerId" style="width: 100%; height: 100%">
-    <slot></slot>
-  </div>
-</template>
-
-<script>
+<script lang="ts">
+import { defineComponent } from "vue-demi";
 import SceneView from "@arcgis/core/views/SceneView";
-import viewMixin from "../../mixins/views";
+import { useInitView } from "../../use";
 
-export default {
-  name: "e-scene-view",
-  mixins: [viewMixin],
-  data() {
-    return {
-      module: SceneView
-    };
+export default defineComponent({
+  name: "ESceneView",
+  setup(props, context) {
+    return useInitView({ ...context, Module: SceneView });
   }
-};
+});
 </script>

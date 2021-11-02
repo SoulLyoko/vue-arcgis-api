@@ -1,20 +1,12 @@
-<template>
-  <div :id="$attrs.id || containerId" style="width: 100%; height: 100%">
-    <slot></slot>
-  </div>
-</template>
-
-<script>
+<script lang="ts">
+import { defineComponent } from "vue-demi";
 import MapView from "@arcgis/core/views/MapView";
-import viewMixin from "../../mixins/views";
+import { useInitView } from "../../use";
 
-export default {
-  name: "e-map-view",
-  mixins: [viewMixin],
-  data() {
-    return {
-      module: MapView
-    };
+export default defineComponent({
+  name: "EMapView",
+  setup(props, context) {
+    return useInitView({ ...context, Module: MapView });
   }
-};
+});
 </script>

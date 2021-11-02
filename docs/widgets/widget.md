@@ -1,13 +1,9 @@
-# Widgets 控件
+# Widgets 插件
 
-## Legend 图例
+## 示例
 
-<<< @/docs/.vuepress/components/demo-widget-legend.vue
+<demo-widget></demo-widget>
 
-<demo-widget-legend></demo-widget-legend>
-
-## Custom 自定义
-
-<<< @/docs/.vuepress/components/demo-widget-custom.vue
-
-<demo-widget-custom></demo-widget-custom>
+<code-details>
+<<< @/.vitepress/components/widgets/widget/index.vue#snippet
+</code-details>

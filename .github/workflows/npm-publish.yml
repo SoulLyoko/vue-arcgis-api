@@ -2,7 +2,7 @@ name: NPM Publish
 on:
   push:
     branches:
-      - master
+      - vite
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -10,12 +10,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # - name: Install and Build
-      #   run: |
-      #     yarn 
-      #     yarn build
+      - name: Install and Build
+        run: |
+          yarn 
+          yarn build
 
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_ACCESS_TOKEN }}
+          tag: beta

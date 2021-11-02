@@ -1,14 +1,12 @@
-<script>
+<script lang="ts">
+import { defineComponent } from "vue-demi";
 import TileLayer from "@arcgis/core/layers/TileLayer";
-import layerMixin from "../../mixins/layers";
+import { useInitLayer } from "../../use";
 
-export default {
-  name: "e-tile-layer",
-  mixins: [layerMixin],
-  data() {
-    return {
-      module: TileLayer
-    };
+export default defineComponent({
+  name: "ETileLayer",
+  setup(props, context) {
+    return useInitLayer({ ...context, Module: TileLayer });
   }
-};
+});
 </script>
