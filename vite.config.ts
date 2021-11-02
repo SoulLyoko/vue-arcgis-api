@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "packages/index.ts"),
-      name: "ViteLibStarter",
+      name: "VueArcgisApi",
       fileName: "index"
     },
     outDir: "lib",
@@ -29,11 +29,7 @@ export default defineConfig({
         globals: {
           vue: "Vue",
           "vue-demi": "VueDemi"
-          // "@arcgis/core": "ArcgisCore"
         }
-      },
-      watch: {
-        exclude: ["public/*"]
       }
     }
   }
