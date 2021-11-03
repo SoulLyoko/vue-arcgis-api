@@ -1,4 +1,4 @@
-export * from "./constructor";
+export * from "./components";
 export * from "./emitter";
 export * from "./provide";
 export * from "./layers";

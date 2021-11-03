@@ -1,11 +1,12 @@
 {
   "name": "vue-arcgis-api",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "vue-arcgis-api",
   "author": "SoulLyoko <519052532@qq.com>",
   "private": false,
   "license": "MIT",
-  "main": "lib/index.umd.js",
+  "main": "lib/vue-arcgis-api.umd.js",
+  "types": "lib/vue-arcgis-api.d.ts",
   "keywords": [
     "vue",
     "arcgis"
@@ -24,7 +25,8 @@
     "cp:readme": "ncp ./README.md ./docs/index.md",
     "cp:log": "ncp ./CHANGELOG.md ./docs/CHANGELOG.md",
     "cp:arcgis": "ncp ./node_modules/@arcgis/core/assets ./docs/public/assets",
-    "cp": "npm run cp:readme && npm run cp:log"
+    "cp": "npm run cp:readme && npm run cp:log",
+    "dts": "vue-dts-gen packages/**/*.vue"
   },
   "dependencies": {
     "mitt": "^3.0.0",
