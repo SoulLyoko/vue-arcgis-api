@@ -26,12 +26,17 @@ const state = reactive({
 
 const drawRef = ref();
 function startDraw(type: string) {
-  const { create } = drawRef.value?._.subTree.component.exposed;
+  // 由于文档组件动态导入的原因，正常使用只需要drawRef.value.create(type)
+  const { create } = getExposed(drawRef.value);
   create(type);
 }
 function handleClear(type?: string) {
-  const { clear } = drawRef.value?._.subTree.component.exposed;
+  const { clear } = getExposed(drawRef.value);
   clear(type);
+}
+
+function getExposed(component: any) {
+  return component?._.subTree.component.exposed;
 }
 </script>
 // #endregion snippet

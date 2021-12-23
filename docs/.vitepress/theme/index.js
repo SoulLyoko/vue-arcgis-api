@@ -1,5 +1,3 @@
-// @ts-nocheck
-import { App } from "vue";
 import defaultTheme from "vitepress/dist/client/theme-default";
 // import esriConfig from "@arcgis/core/config.js";
 // esriConfig.assetsPath = "/vue-arcgis-api/assets";
@@ -8,7 +6,7 @@ import components from "../components";
 
 export default {
   ...defaultTheme,
-  enhanceApp({ app }: { app: App }) {
+  enhanceApp({ app }) {
     app.use(components);
   }
 };

@@ -13,7 +13,7 @@ yarn add vue-arcgis-api
 ```
 
 - 在 package.json 中为你的 script 添加: `"cp:arcgis": "ncp ./node_modules/@arcgis/core/assets ./public/assets"`
-- 运行一次 `yarn arcgis:cp` 将 acrgisapi 拷贝到项目目录下就可以开始啦
+- 运行一次 `yarn cp:arcgis` 将 acrgisapi 拷贝到项目目录下就可以开始啦
 
 ## 快速上手
 

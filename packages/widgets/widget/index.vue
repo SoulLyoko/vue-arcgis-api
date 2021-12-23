@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, h, inject, onMounted, onUnmounted } from "vue-demi";
+import { defineComponent, h, inject, onMounted, onUnmounted, PropType } from "vue-demi";
 import View from "@arcgis/core/views/View";
 import { MapEmitter, MapProvide } from "../../types";
 import { useWatch } from "../../use";
@@ -8,8 +8,8 @@ import widgetsModule from "./modules";
 export default defineComponent({
   name: "EWidget",
   props: {
-    module: { type: String },
-    position: { type: String, default: "top-left" }
+    module: { type: String as PropType<keyof typeof widgetsModule> },
+    position: { type: String }
   },
   setup(props, { attrs, slots }) {
     const mapRoot = inject<MapProvide>("mapRoot");
@@ -45,9 +45,9 @@ export default defineComponent({
     }
 
     async function initModule(view: View) {
-      // @ts-ignore
+      if (!props.module) return;
       const Module = widgetsModule[props.module];
-      widget = new Module({ view, ...attrs });
+      widget = new Module({ view, ...attrs } as any);
       view.ui.add(widget, props.position);
       useWatch({ attrs, instance: widget });
     }
