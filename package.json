@@ -1,39 +1,39 @@
 {
   "name": "vue-arcgis-api",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "vue-arcgis-api",
   "author": "SoulLyoko <519052532@qq.com>",
+  "repository": "https://github.com/SoulLyoko/vue-arcgis-api.git",
+  "homepage": "https://github.com/SoulLyoko/vue-arcgis-api#readme",
   "private": false,
   "license": "MIT",
   "main": "lib/vue-arcgis-api.umd.js",
   "types": "lib/vue-arcgis-api.d.ts",
   "keywords": [
     "vue",
-    "arcgis"
+    "arcgis",
+    "arcgis-api"
   ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
     "docs:dev": "npm run cp && vitepress dev docs",
-    "docs:build": "npm run fix-memory-limit && npm run cp && vitepress build docs",
+    "docs:build": "npm run cp && vitepress build docs",
     "docs:serve": "vitepress serve docs",
     "lint": "eslint --ext .ts,.vue .",
     "prepare": "husky install",
-    "fix": "vue-demi-fix",
-    "fix-memory-limit": "cross-env LIMIT=4096 increase-memory-limit",
     "cp:readme": "ncp ./README.md ./docs/index.md",
     "cp:log": "ncp ./CHANGELOG.md ./docs/CHANGELOG.md",
     "cp:arcgis": "ncp ./node_modules/@arcgis/core/assets ./docs/public/assets",
-    "cp": "npm run cp:readme && npm run cp:log",
-    "dts": "vue-dts-gen packages/**/*.vue"
+    "cp": "npm run cp:readme && npm run cp:log"
   },
   "dependencies": {
     "mitt": "^3.0.0",
-    "vue-demi": "^0.11.4"
+    "vue-demi": "^0.12.1"
   },
   "peerDependencies": {
-    "@vue/composition-api": "~1.2.4",
+    "@vue/composition-api": "^1.4.2",
     "vue": "^2.0.0 || >=3.0.0"
   },
   "peerDependenciesMeta": {
@@ -42,34 +42,30 @@
     }
   },
   "devDependencies": {
-    "@arcgis/core": "^4.21.2",
-    "@types/node": "^16.11.6",
-    "@typescript-eslint/eslint-plugin": "^5.3.0",
-    "@typescript-eslint/parser": "^5.3.0",
-    "@vitejs/plugin-vue": "^1.9.4",
-    "@vue/compiler-sfc": "3.2.20",
-    "@vue/composition-api": "~1.2.4",
-    "@vue/runtime-dom": "^3.2.20",
+    "@arcgis/core": "~4.21.2",
+    "@types/node": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vue/compiler-sfc": "3.2.26",
+    "@vue/composition-api": "^1.4.2",
+    "@vue/runtime-dom": "^3.2.26",
     "cross-env": "^7.0.3",
-    "eslint": "^8.1.0",
+    "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^7.20.0",
+    "eslint-plugin-vue": "^8.2.0",
     "husky": "^7.0.4",
-    "increase-memory-limit": "^1.0.7",
-    "lint-staged": "^11.2.6",
+    "lint-staged": "^12.1.3",
     "ncp": "^2.0.0",
-    "prettier": "^2.4.1",
-    "typescript": "^4.4.4",
-    "vite": "^2.6.13",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.7.6",
     "vite-plugin-vue2": "^1.9.0",
-    "vitepress": "^0.20.0",
+    "vitepress": "^0.20.9",
     "vue": "^3.2.20",
-    "vue-dts-gen": "^0.3.0",
     "vue-template-compiler": "^2.6.14",
-    "vue-tsc": "^0.3.0",
-    "vue2": "npm:vue@2",
-    "vue3": "npm:vue@3"
+    "vue-tsc": "^0.30.0"
   },
   "lint-staged": {
     "*.{ts,vue}": [
