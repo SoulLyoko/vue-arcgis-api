@@ -1,3 +1,10 @@
+### v0.2.0
+
+2021-12-31
+
+- refactor: all components and `useInject` funciton
+- feat: EGraphic
+
 ### v0.1.5/v0.1.6
 
 2021-11-2
