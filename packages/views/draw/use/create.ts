@@ -5,15 +5,17 @@ import Graphic from "@arcgis/core/Graphic";
 import Point from "@arcgis/core/geometry/Point";
 import Polyline from "@arcgis/core/geometry/Polyline";
 import Polygon from "@arcgis/core/geometry/Polygon";
-import { useInject } from "../../../use";
 import { DrawState, Props } from "../types";
+import { useInject } from "../../../use";
 
 type DrawCreateParameters = Parameters<InstanceType<typeof Draw>["create"]>;
 type DrawAction = DrawCreateParameters[0];
 type DrawOptions = DrawCreateParameters[1];
 
 export function useCreate({ state, props, emit }: { state: DrawState; props: Props; emit: SetupContext["emit"] }) {
-  const { mapRoot } = useInject();
+  const { rootMap, rootView } = useInject();
+  const map = rootMap?.value;
+  const view = rootView?.value;
 
   function create(drawAction: DrawAction, drawOptions: DrawOptions) {
     state.graphicsLayer = new GraphicsLayer({ title: drawAction });
@@ -41,7 +43,7 @@ export function useCreate({ state, props, emit }: { state: DrawState; props: Pro
       geometry: new Point({
         x,
         y,
-        spatialReference: mapRoot?.view?.spatialReference
+        spatialReference: view?.spatialReference
       }),
       symbol: props.point
     });
@@ -53,7 +55,7 @@ export function useCreate({ state, props, emit }: { state: DrawState; props: Pro
     const graphic = new Graphic({
       geometry: new Polyline({
         paths: event.vertices,
-        spatialReference: mapRoot?.view?.spatialReference
+        spatialReference: view?.spatialReference
       }),
       symbol: props.polyline
     });
@@ -65,7 +67,7 @@ export function useCreate({ state, props, emit }: { state: DrawState; props: Pro
     const graphic = new Graphic({
       geometry: new Polygon({
         rings: event.vertices,
-        spatialReference: mapRoot?.view?.spatialReference
+        spatialReference: view?.spatialReference
       }),
       symbol: props.polygon
     });
@@ -75,7 +77,7 @@ export function useCreate({ state, props, emit }: { state: DrawState; props: Pro
 
   function add(graphic: Graphic) {
     state.graphicsLayer?.add(graphic);
-    mapRoot?.map?.add(state.graphicsLayer as GraphicsLayer);
+    map?.add(state.graphicsLayer as GraphicsLayer);
   }
   // 清除当前图层的图形
   function remove() {

@@ -1,8 +1,7 @@
-import { h, onMounted, inject, SetupContext } from "vue-demi";
-import Map from "@arcgis/core/Map";
-import { MapEmitter, MapProvide, ViewConstructor } from "../types";
-import { useEvents, useWatch } from "./";
-import { uuid } from "../utils";
+import { onMounted, inject, SetupContext } from "vue-demi";
+import { useEvents, useWatch, useRootMap } from "./";
+import { uuid, h } from "../utils";
+import { MapEmitter, ViewConstructor } from "../types";
 
 const commonEvents = [
   "blur",
@@ -34,21 +33,11 @@ export function useInitView({
   Module,
   otherEvents = []
 }: SetupContext & { Module: ViewConstructor; otherEvents?: string[] }) {
-  const mapRoot = inject<MapProvide>("mapRoot");
   const mapEmitter = inject<MapEmitter>("mapEmitter");
   const containerId = uuid();
 
-  onMounted(() => {
-    if (mapRoot?.map) {
-      init(mapRoot?.map);
-    } else {
-      mapEmitter?.on("rootMapInit", (map: Map) => {
-        init(map);
-      });
-    }
-  });
-
-  function init(map?: Map) {
+  onMounted(async () => {
+    const map = await useRootMap();
     const view = new Module({
       container: containerId,
       map,
@@ -58,15 +47,13 @@ export function useInitView({
     useWatch({ attrs, instance: view });
     mapEmitter?.emit("rootViewInit", view);
     emit("init", view, map);
-  }
+  });
 
   return () =>
     h(
       "div",
       {
-        // attrs for Vue2
         attrs: { id: containerId },
-        id: containerId,
         style: "width:100%;height:100%"
       },
       slots.default?.()

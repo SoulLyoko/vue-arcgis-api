@@ -1,12 +1,12 @@
-<script lang="ts">
 import { defineComponent } from "vue-demi";
 import MapView from "@arcgis/core/views/MapView";
 import { useInitView } from "../../use";
 
-export default defineComponent({
+export const EMapView = defineComponent({
   name: "EMapView",
   setup(props, context) {
     return useInitView({ ...context, Module: MapView });
   }
 });
-</script>
+
+export type EMapView = InstanceType<typeof EMapView>;
