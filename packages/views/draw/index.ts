@@ -10,8 +10,8 @@ export const EDraw = defineComponent({
   props: PROPS,
   setup(props, { emit, expose, attrs }) {
     const state = shallowReactive<DrawState>({
-      drawer: undefined,
-      graphicsLayer: undefined,
+      drawer: null,
+      graphicsLayer: null,
       graphicsLayers: [],
       graphics: []
     });

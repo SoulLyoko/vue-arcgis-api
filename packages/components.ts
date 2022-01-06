@@ -1,6 +1,7 @@
 export * from "./main/map";
 export * from "./main/graphic";
 export * from "./main/webMap";
+export * from "./main/webScene";
 export * from "./views/mapView";
 export * from "./views/sceneView";
 export * from "./layers/featureLayer";

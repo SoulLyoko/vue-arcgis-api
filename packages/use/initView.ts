@@ -43,10 +43,10 @@ export function useInitView({
       map,
       ...attrs
     });
+    emit("init", view, map);
+    mapEmitter?.emit("rootViewInit", view);
     useEvents({ events: [...commonEvents, ...otherEvents], emit, instance: view });
     useWatch({ attrs, instance: view });
-    mapEmitter?.emit("rootViewInit", view);
-    emit("init", view, map);
   });
 
   return () =>

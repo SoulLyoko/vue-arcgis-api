@@ -5,9 +5,9 @@ import Graphic from "@arcgis/core/Graphic";
 import { PROPS } from "./use/const";
 
 export interface DrawState {
-  drawer?: Draw;
-  graphicsLayer?: GraphicsLayer;
-  graphicsLayers?: GraphicsLayer[];
+  drawer: Draw | null;
+  graphicsLayer: GraphicsLayer | null;
+  graphicsLayers: GraphicsLayer[];
   graphics: Graphic[];
 }
 

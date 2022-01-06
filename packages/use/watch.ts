@@ -8,7 +8,7 @@ export function useWatch({ attrs, instance }: { attrs: SetupContext["attrs"]; in
         instance[key] = val[key];
       });
       instance?.refresh?.();
-    },
-    { deep: true }
+    }
+    // { deep: true }
   );
 }

@@ -3,8 +3,10 @@ import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import Draw from "@arcgis/core/views/draw/Draw";
 import Graphic from "@arcgis/core/Graphic";
 import Point from "@arcgis/core/geometry/Point";
+import Multipoint from "@arcgis/core/geometry/Multipoint";
 import Polyline from "@arcgis/core/geometry/Polyline";
 import Polygon from "@arcgis/core/geometry/Polygon";
+import Circle from "@arcgis/core/geometry/Circle";
 import { DrawState, Props } from "../types";
 import { useInject } from "../../../use";
 
@@ -14,8 +16,6 @@ type DrawOptions = DrawCreateParameters[1];
 
 export function useCreate({ state, props, emit }: { state: DrawState; props: Props; emit: SetupContext["emit"] }) {
   const { rootMap, rootView } = useInject();
-  const map = rootMap?.value;
-  const view = rootView?.value;
 
   function create(drawAction: DrawAction, drawOptions: DrawOptions) {
     state.graphicsLayer = new GraphicsLayer({ title: drawAction });
@@ -25,15 +25,26 @@ export function useCreate({ state, props, emit }: { state: DrawState; props: Pro
       case "point":
         action?.on(["cursor-update", "draw-complete"], drawPoint);
         break;
+      case "multipoint":
+        action?.on(["vertex-add", "vertex-remove", "cursor-update", "redo", "undo", "draw-complete"], drawMultipoint);
+        break;
       case "polyline":
         action?.on(["vertex-add", "vertex-remove", "cursor-update", "redo", "undo", "draw-complete"], drawPolyline);
         break;
       case "polygon":
         action?.on(["vertex-add", "vertex-remove", "cursor-update", "redo", "undo", "draw-complete"], drawPolygon);
         break;
+      case "circle":
+        action?.on(["vertex-add", "cursor-update", "draw-complete"], drawCircle);
+        break;
+      case "rectangle":
+        action?.on(["vertex-add", "cursor-update", "draw-complete"], drawRectangle);
+        // case "ellipse":
+        break;
       default:
         break;
     }
+    return action;
   }
 
   function drawPoint(event: any) {
@@ -43,31 +54,46 @@ export function useCreate({ state, props, emit }: { state: DrawState; props: Pro
       geometry: new Point({
         x,
         y,
-        spatialReference: view?.spatialReference
+        spatialReference: rootView?.value?.spatialReference
       }),
       symbol: props.point
     });
     add(graphic);
     emit(event.type, { ...event, actionType: "point", graphic });
   }
+
+  function drawMultipoint(event: any) {
+    remove();
+    const graphic = new Graphic({
+      geometry: new Multipoint({
+        points: event.vertices,
+        spatialReference: rootView?.value?.spatialReference
+      }),
+      symbol: props.multipoint
+    });
+    add(graphic);
+    emit(event.type, { ...event, actionType: "multipoint", graphic });
+  }
+
   function drawPolyline(event: any) {
     remove();
     const graphic = new Graphic({
       geometry: new Polyline({
         paths: event.vertices,
-        spatialReference: view?.spatialReference
+        spatialReference: rootView?.value?.spatialReference
       }),
       symbol: props.polyline
     });
     add(graphic);
     emit(event.type, { ...event, actionType: "polyline", graphic });
   }
+
   function drawPolygon(event: any) {
     remove();
     const graphic = new Graphic({
       geometry: new Polygon({
         rings: event.vertices,
-        spatialReference: view?.spatialReference
+        spatialReference: rootView?.value?.spatialReference
       }),
       symbol: props.polygon
     });
@@ -75,9 +101,52 @@ export function useCreate({ state, props, emit }: { state: DrawState; props: Pro
     emit(event.type, { ...event, actionType: "polygon", graphic });
   }
 
+  function drawCircle(event: any) {
+    if (event.vertices.length < 2) return;
+    remove();
+    const center = new Point({
+      x: event.vertices[0][0],
+      y: event.vertices[0][1],
+      spatialReference: rootView?.value?.spatialReference
+    });
+    const sider = new Point({
+      x: event.vertices[1][0],
+      y: event.vertices[1][1],
+      spatialReference: rootView?.value?.spatialReference
+    });
+    const radius = center.distance(sider);
+    const graphic = new Graphic({
+      geometry: new Circle({
+        center,
+        radius,
+        spatialReference: rootView?.value?.spatialReference
+      }),
+      symbol: props.polygon
+    });
+    add(graphic);
+    emit(event.type, { ...event, actionType: "circle", graphic });
+  }
+
+  function drawRectangle(event: any) {
+    if (event.vertices.length < 2) return;
+    remove();
+    const { vertices } = event;
+    const rings = [vertices[0], [vertices[0][0], vertices[1][1]], vertices[1], [vertices[1][0], vertices[0][1]]];
+    const graphic = new Graphic({
+      geometry: new Polygon({
+        rings,
+        spatialReference: rootView?.value?.spatialReference
+      }),
+      symbol: props.polygon
+    });
+    add(graphic);
+    emit(event.type, { ...event, actionType: "rectangle", graphic });
+  }
+
+  // 添加图形
   function add(graphic: Graphic) {
     state.graphicsLayer?.add(graphic);
-    map?.add(state.graphicsLayer as GraphicsLayer);
+    state.graphicsLayer && rootMap?.value?.add(state.graphicsLayer);
   }
   // 清除当前图层的图形
   function remove() {
