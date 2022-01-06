@@ -9,7 +9,6 @@ src
 .eslintrc.js
 .gitignore
 .prettierrc.js
-deploy.sh
 index.html
 tsconfig.json
 vite.config.ts
