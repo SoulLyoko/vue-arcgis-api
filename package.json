@@ -26,6 +26,7 @@
     "prepare": "husky install",
     "precommit": "node scripts/precommit.js",
     "release": "node scripts/release.js",
+    "deploy": "node scripts/deploy.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "cp:arcgis": "ncp ./node_modules/@arcgis/core/assets ./docs/public/assets"
   },
