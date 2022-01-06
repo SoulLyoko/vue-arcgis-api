@@ -1,6 +1,6 @@
 {
   "name": "vue-arcgis-api",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "vue-arcgis-api",
   "author": "SoulLyoko <519052532@qq.com>",
   "repository": "https://github.com/SoulLyoko/vue-arcgis-api.git",
@@ -60,7 +60,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.2.0",
-    "execa": "^6.0.0",
+    "execa": "^4.1.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.5",
     "ncp": "^2.0.0",
