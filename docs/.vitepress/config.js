@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/vue-arcgis-api",
+  base: "/vue-arcgis-api/",
   lang: "zh-CN",
   title: "vue-arcgis-api",
   description: "vue-arcgis-api",

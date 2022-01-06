@@ -1,8 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run cp
-git add docs/index.md
-git add docs/CHANGELOG.md
+npm run precommit
 
 npx lint-staged --allow-empty $1
