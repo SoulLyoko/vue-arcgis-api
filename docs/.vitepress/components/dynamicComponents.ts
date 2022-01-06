@@ -2,6 +2,8 @@ import { defineComponent, shallowReactive, h } from "vue";
 
 export const EMap = defineDynamicComponent("EMap");
 export const EWebMap = defineDynamicComponent("EWebMap");
+export const EWebScene = defineDynamicComponent("EWebScene");
+export const EGraphic = defineDynamicComponent("EGraphic");
 export const EMapView = defineDynamicComponent("EMapView");
 export const ESceneView = defineDynamicComponent("ESceneView");
 export const EFeatureLayer = defineDynamicComponent("EFeatureLayer");

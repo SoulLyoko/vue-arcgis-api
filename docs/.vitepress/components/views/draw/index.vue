@@ -1,12 +1,11 @@
 // #region snippet
 <template>
-  <button @click="startDraw('point')">drawPoint</button>
-  <button @click="startDraw('polyline')">drawPolyline</button>
-  <button @click="startDraw('polygon')">drawPolygon</button>
-  <button @click="handleClear('point')">clearPoint</button>
-  <button @click="handleClear('polyline')">clearPolyline</button>
-  <button @click="handleClear('polygon')">clearPolygon</button>
-  <button @click="handleClear()">clearAll</button>
+  <select name="drawAction" v-model="state.drawAction">
+    <option v-for="item in state.drawActions" :value="item">{{ item }}</option>
+  </select>
+  <button @click="onDraw">draw</button>
+  <button @click="onClear">clear</button>
+  <button @click="onClearAll">clearAll</button>
   <container>
     <EMap :basemap="state.basemap">
       <EMapView :center="state.center" :zoom="state.zoom"></EMapView>
@@ -21,18 +20,24 @@ import { reactive, ref } from "vue";
 const state = reactive({
   basemap: "topo",
   center: [0, 0],
-  zoom: 0
+  zoom: 0,
+  drawActions: ["point", "multipoint", "polyline", "polygon", "circle", "rectangle"],
+  drawAction: "point"
 });
 
 const drawRef = ref();
-function startDraw(type: string) {
+function onDraw() {
   // 由于文档组件动态导入的原因，正常使用只需要drawRef.value.create(type)
   const { create } = getExposed(drawRef.value);
-  create(type);
+  create(state.drawAction);
 }
-function handleClear(type?: string) {
+function onClear() {
   const { clear } = getExposed(drawRef.value);
-  clear(type);
+  clear(state.drawAction);
+}
+function onClearAll() {
+  const { clear } = getExposed(drawRef.value);
+  clear();
 }
 
 function getExposed(component: any) {

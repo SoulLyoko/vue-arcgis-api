@@ -24,6 +24,7 @@ const state = reactive({
 const EDrawRef = ref();
 function openDraw() {
   console.log(EDrawRef.value);
+  EDrawRef.value.create("point");
 }
 </script>
 

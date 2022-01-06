@@ -11,7 +11,10 @@
 import { reactive } from "vue";
 
 const state = reactive({
-  portalItem: { id: "e691172598f04ea8881cd2a4adaa45ba" }
+  portalItem: {
+    // autocasts as new PortalItem()
+    id: "e691172598f04ea8881cd2a4adaa45ba"
+  }
 });
 </script>
 // #endregion snippet

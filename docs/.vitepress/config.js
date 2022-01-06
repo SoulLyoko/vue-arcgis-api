@@ -13,8 +13,10 @@ module.exports = {
         {
           text: "基础地图",
           children: [
-            { text: "Map 地图", link: "/map/map" },
-            { text: "WebMap 网络地图", link: "/map/web-map" }
+            { text: "Map 地图", link: "/main/map" },
+            { text: "WebMap 网络地图", link: "/main/web-map" },
+            { text: "WebScene 网络场景", link: "/main/web-scene" },
+            { text: "Graphic 图形", link: "/main/graphic" }
           ]
         },
         {

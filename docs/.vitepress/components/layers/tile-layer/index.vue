@@ -24,10 +24,6 @@ const state = reactive({
 const url = computed(() => {
   return `https://services.arcgisonline.com/ArcGIS/rest/services/${state.radio}/MapServer`;
 });
-
-function layerCreate(e: any) {
-  console.log("🚀 ~ file: index.vue ~ line 29 ~ layerCreate ~ e", e);
-}
 </script>
 // #endregion snippet
 

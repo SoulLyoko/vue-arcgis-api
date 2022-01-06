@@ -11,9 +11,9 @@
 import { reactive } from "vue";
 
 const state = reactive({
-  basemap: "topo",
-  center: [0, 0],
-  zoom: 0
+  basemap: "streets-vector",
+  center: [-112, 38],
+  zoom: 13
 });
 </script>
 // #endregion snippet
