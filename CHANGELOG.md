@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/SoulLyoko/vue-arcgis-api/compare/v0.2.0...v0.2.1) (2022-01-06)
+
+
+### Features
+
+* draw circle and rectangle ([66b8fd9](https://github.com/SoulLyoko/vue-arcgis-api/commit/66b8fd964e6ddc54a54631da3de0e48b689a0cd9))
+
+
+
 # [0.2.0](https://github.com/SoulLyoko/vue-arcgis-api/compare/v0.1.6...v0.2.0) (2021-12-31)
 
 ### Features
