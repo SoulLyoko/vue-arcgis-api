@@ -132,8 +132,8 @@
 
 "@arcgis/core@~4.21.2":
   version "4.21.2"
-  resolved "https://registry.yarnpkg.com/@arcgis/core/-/core-4.21.2.tgz#0fbfe17f981ff4247ac7770f8e662e716260b8bb"
-  integrity sha512-L3Rc84wOFsMcljrydVKc1jkgYQSO+ru4Kgr7tCsK+YLVGWNeggLRh2XeGNIuXOEklaMxdWIBZ+Kw9424K+JQyw==
+  resolved "https://registry.npmmirror.com/@arcgis/core/download/@arcgis/core-4.21.2.tgz#0fbfe17f981ff4247ac7770f8e662e716260b8bb"
+  integrity sha1-D7/hf5gf9CR6x3cPjmYucWJguLs=
   dependencies:
     "@esri/arcgis-html-sanitizer" "~2.7.0"
     "@esri/calcite-colors" "~6.0.1"
@@ -675,8 +675,8 @@
 
 "@esri/arcgis-html-sanitizer@~2.7.0":
   version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@esri/arcgis-html-sanitizer/-/arcgis-html-sanitizer-2.7.0.tgz#ab30a2aba04f5f1b3d261acc070dfb3efd6d2bc5"
-  integrity sha512-T3D2Gn5n7Wsu3YmsPtw9F2HmxI2McebkYHOAo9D7HF6bHBcca0GpBsDaRgYTmQ68ABOsAIIvbFfBY6aDyyHYbw==
+  resolved "https://registry.npmmirror.com/@esri/arcgis-html-sanitizer/download/@esri/arcgis-html-sanitizer-2.7.0.tgz#ab30a2aba04f5f1b3d261acc070dfb3efd6d2bc5"
+  integrity sha1-qzCiq6BPXxs9JhrMBw37Pv1tK8U=
   dependencies:
     lodash.isplainobject "^4.0.6"
     xss "^1.0.9"
@@ -688,8 +688,8 @@
 
 "@esri/calcite-components@1.0.0-beta.62":
   version "1.0.0-beta.62"
-  resolved "https://registry.yarnpkg.com/@esri/calcite-components/-/calcite-components-1.0.0-beta.62.tgz#c284d3b979748a0f9279be39e40255d783a796bf"
-  integrity sha512-GCDIX6TKgjAc3MZ/nKZIheCEH2a1vsM+B1cldczEXgOqGeGP+sOgGuJRV6PzbpoYnvAvklsGpXjgVKNnkacIFw==
+  resolved "https://registry.npmmirror.com/@esri/calcite-components/download/@esri/calcite-components-1.0.0-beta.62.tgz#c284d3b979748a0f9279be39e40255d783a796bf"
+  integrity sha1-woTTuXl0ig+Seb455AJV14Onlr8=
   dependencies:
     "@a11y/focus-trap" "1.0.5"
     "@popperjs/core" "2.9.3"
@@ -741,8 +741,8 @@
 
 "@popperjs/core@2.9.3", "@popperjs/core@~2.9.3":
   version "2.9.3"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.3.tgz#8b68da1ebd7fc603999cf6ebee34a4899a14b88e"
-  integrity sha512-xDu17cEfh7Kid/d95kB6tZsLOmSWKCZKtprnhVepjsSaCij+lM3mItSJDuuHDMbCWTh8Ejmebwb+KONcCJ0eXQ==
+  resolved "https://registry.npmmirror.com/@popperjs/core/download/@popperjs/core-2.9.3.tgz#8b68da1ebd7fc603999cf6ebee34a4899a14b88e"
+  integrity sha1-i2jaHr1/xgOZnPbr7jSkiZoUuI4=
 
 "@rollup/pluginutils@^4.1.1":
   version "4.1.1"
@@ -754,8 +754,8 @@
 
 "@stencil/core@2.6.0":
   version "2.6.0"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.6.0.tgz#29da96d8b6fc83e689b9f297ef3e8b59b90a676a"
-  integrity sha512-QsxWayZyusnqSZrlCl81R71rA3KqFjVVQSH4E0rGN15F1GdQaFonKlHLyCOLKLig1zzC+DQkLLiUuocexuvdeQ==
+  resolved "https://registry.npmmirror.com/@stencil/core/download/@stencil/core-2.6.0.tgz#29da96d8b6fc83e689b9f297ef3e8b59b90a676a"
+  integrity sha1-KdqW2Lb8g+aJufKX7z6LWbkKZ2o=
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.8"
@@ -2850,8 +2850,8 @@ flatted@^3.1.0:
 
 focus-trap@~6.6.1:
   version "6.6.1"
-  resolved "https://registry.yarnpkg.com/focus-trap/-/focus-trap-6.6.1.tgz#761ce2c82ddd72beeb049e968bc8414e25b704aa"
-  integrity sha512-x9BWuAeF5UrfWuYKJ3jYrjcVYSYptS9CqtxH5IH7lPlZrMsaugKeAa0HtoZSBZe5DmeTMx2m0qY464ZMzqarzw==
+  resolved "https://registry.npmmirror.com/focus-trap/download/focus-trap-6.6.1.tgz#761ce2c82ddd72beeb049e968bc8414e25b704aa"
+  integrity sha1-dhziyC3dcr7rBJ6Wi8hBTiW3BKo=
   dependencies:
     tabbable "^5.2.1"
 
@@ -3556,7 +3556,7 @@ lru-cache@^6.0.0:
 
 luxon@~2.0.2:
   version "2.0.2"
-  resolved "https://registry.yarnpkg.com/luxon/-/luxon-2.0.2.tgz#11f2cd4a11655fdf92e076b5782d7ede5bcdd133"
+  resolved "https://registry.npmmirror.com/luxon/download/luxon-2.0.2.tgz#11f2cd4a11655fdf92e076b5782d7ede5bcdd133"
   integrity sha512-ZRioYLCgRHrtTORaZX1mx+jtxKtKuI5ZDvHNAmqpUzGqSrR+tL4FVLn/CUGMA3h0+AKD1MAxGI5GnCqR5txNqg==
 
 magic-string@^0.25.7:
@@ -4874,10 +4874,10 @@ vite@^2.7.10:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vitepress@^0.20.10:
-  version "0.20.10"
-  resolved "https://registry.npmmirror.com/vitepress/download/vitepress-0.20.10.tgz#18266182aee192191db76f63b68203eea3ac148d"
-  integrity sha512-dKgH6k1yxdEjIIxoXGI0vMg3lpBLvMarre/vvt4beuxd+rXOUB1a7DAtXDmgIXOMGQ7IcF+4zyd2132IedhjtQ==
+vitepress@^0.21.3:
+  version "0.21.3"
+  resolved "https://registry.npmmirror.com/vitepress/download/vitepress-0.21.3.tgz#fc514b28102d961a50f6002c153649558f73f60e"
+  integrity sha512-EKD6EYBUA2V0dVKgJB10yI0tk2iu2mfkL+29eygojdBw3SxxklPOL2CJ6fvaX0It0NMhUkrgQn/WKI1b9edp2A==
   dependencies:
     "@docsearch/css" "^3.0.0-alpha.41"
     "@docsearch/js" "^3.0.0-alpha.41"
@@ -5130,8 +5130,8 @@ wrappy@1:
 
 xss@^1.0.9:
   version "1.0.10"
-  resolved "https://registry.yarnpkg.com/xss/-/xss-1.0.10.tgz#5cd63a9b147a755a14cb0455c7db8866120eb4d2"
-  integrity sha512-qmoqrRksmzqSKvgqzN0055UFWY7OKx1/9JWeRswwEVX9fCG5jcYRxa/A2DHcmZX6VJvjzHRQ2STeeVcQkrmLSw==
+  resolved "https://registry.npmmirror.com/xss/download/xss-1.0.10.tgz?cache=0&sync_timestamp=1633683647650&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fxss%2Fdownload%2Fxss-1.0.10.tgz#5cd63a9b147a755a14cb0455c7db8866120eb4d2"
+  integrity sha1-XNY6mxR6dVoUywRVx9uIZhIOtNI=
   dependencies:
     commander "^2.20.3"
     cssfilter "0.0.10"
