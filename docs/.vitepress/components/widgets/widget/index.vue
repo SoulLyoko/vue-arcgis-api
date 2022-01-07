@@ -3,6 +3,7 @@
   <container height="600px">
     <EWebMap :portalItem="state.portalItem">
       <EMapView @init="viewInit"></EMapView>
+      <EWidget module="Sketch" position="top-left" v-if="state.visible"></EWidget>
       <EWidget module="Legend" position="bottom-right" :layerInfos="state.layerInfos" v-if="state.visible"></EWidget>
       <EWidget module="Zoom" position="bottom-left" :visible="state.visible"></EWidget>
       <EWidget :position="state.customPosition">
@@ -21,17 +22,20 @@ const state = shallowReactive<Record<string, any>>({
   portalItem: { id: "05e015c5f0314db9a487a9b46cb37eca" },
   visible: true,
   customPosition: "top-right",
-  layerInfos: []
+  layerInfos: [],
+  map: null
 });
 
 function viewInit(view: any, map: any) {
   view.ui.components = [];
   view.when(() => {
     const featureLayer = map.layers.getItemAt(0);
-    state.layerInfos.push({
-      layer: featureLayer,
-      title: "NYYYYY Educational Attainment"
-    });
+    state.layerInfos = [
+      {
+        layer: featureLayer,
+        title: "NYYYYY Educational Attainment"
+      }
+    ];
   });
 }
 
