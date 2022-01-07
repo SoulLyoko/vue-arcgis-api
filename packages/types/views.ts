@@ -1,5 +1,5 @@
-import MapView from "@arcgis/core/views/MapView";
-import SceneView from "@arcgis/core/views/SceneView";
+export type ViewInstance = __esri.View;
 
-export type ViewInstance = MapView | SceneView;
-export type ViewConstructor = typeof MapView | typeof SceneView;
+export interface ViewConstructor {
+  new (properties?: __esri.ViewProperties): __esri.View;
+}
