@@ -5,7 +5,8 @@ import { useInitLayer } from "../../use";
 export const EMapImageLayer = defineComponent({
   name: "EMapImageLayer",
   setup(props, context) {
-    return useInitLayer({ ...context, Module: MapImageLayer });
+    useInitLayer({ ...context, Module: MapImageLayer });
+    return () => {};
   }
 });
 

@@ -5,7 +5,8 @@ import { useInitLayer } from "../../use";
 export const ETileLayer = defineComponent({
   name: "ETileLayer",
   setup(props, context) {
-    return useInitLayer({ ...context, Module: TileLayer });
+    useInitLayer({ ...context, Module: TileLayer });
+    return () => {};
   }
 });
 

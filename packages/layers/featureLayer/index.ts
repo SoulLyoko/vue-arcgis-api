@@ -5,7 +5,8 @@ import { useInitLayer } from "../../use";
 export const EFeatureLayer = defineComponent({
   name: "EFeatureLayer",
   setup(props, context) {
-    return useInitLayer({ ...context, Module: FeatureLayer, otherEvents: ["edits"] });
+    useInitLayer({ ...context, Module: FeatureLayer, otherEvents: ["edits"] });
+    return () => {};
   }
 });
 

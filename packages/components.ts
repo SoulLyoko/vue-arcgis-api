@@ -7,5 +7,6 @@ export * from "./views/sceneView";
 export * from "./layers/featureLayer";
 export * from "./layers/mapImageLayer";
 export * from "./layers/tileLayer";
+export * from "./layers/graphicsLayer";
 export * from "./widgets/widget";
 export * from "./views/draw";
