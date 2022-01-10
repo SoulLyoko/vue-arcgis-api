@@ -19,5 +19,5 @@
 
 | Name | Type | Summary |
 | --- | --- | --- |
-| [Native Events](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#properties-summary) |  |  |
+| [Native Events](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-MapImageLayer.html#properties-summary) |  |  |
 | init | MapImageLayer | Emit when component initialized |

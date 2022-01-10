@@ -32,7 +32,8 @@ module.exports = {
           children: [
             { text: "TileLayer 瓦片图层", link: "/layers/tile-layer" },
             { text: "FeatureLayer 要素图层", link: "/layers/feature-layer" },
-            { text: "MapImageLayer 地图图像图层", link: "/layers/map-image-layer" }
+            { text: "MapImageLayer 地图图像图层", link: "/layers/map-image-layer" },
+            { text: "GraphicsLayer 图形图层", link: "/layers/graphics-layer" }
           ]
         },
         {

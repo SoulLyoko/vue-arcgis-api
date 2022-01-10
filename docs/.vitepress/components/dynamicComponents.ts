@@ -9,6 +9,7 @@ export const ESceneView = defineDynamicComponent("ESceneView");
 export const EFeatureLayer = defineDynamicComponent("EFeatureLayer");
 export const EMapImageLayer = defineDynamicComponent("EMapImageLayer");
 export const ETileLayer = defineDynamicComponent("ETileLayer");
+export const EGraphicsLayer = defineDynamicComponent("EGraphicsLayer");
 export const EWidget = defineDynamicComponent("EWidget");
 export const EDraw = defineDynamicComponent("EDraw");
 

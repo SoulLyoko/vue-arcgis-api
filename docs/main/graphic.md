@@ -2,6 +2,14 @@
 
 ## 示例
 
+::: tip
+
+The graphics will be added to `view.graphics` by default
+
+If You want to add graphics to graphicsLayer, see [GraphicsLayer](/vue-arcgis-api/layers/graphics-layer.html)
+
+:::
+
 <demo-graphic></demo-graphic>
 
 <code-details>
