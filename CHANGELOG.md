@@ -1,3 +1,18 @@
+## [0.2.2](https://github.com/SoulLyoko/vue-arcgis-api/compare/v0.2.0...v0.2.2) (2022-01-10)
+
+
+### Bug Fixes
+
+* useWatch with `watchEffect` ([5e15a27](https://github.com/SoulLyoko/vue-arcgis-api/commit/5e15a27447957409c304d3e802ba6280f1e7fd6f))
+
+
+### Features
+
+* draw circle and rectangle ([66b8fd9](https://github.com/SoulLyoko/vue-arcgis-api/commit/66b8fd964e6ddc54a54631da3de0e48b689a0cd9))
+* new component EGraphicsLayer ([b0f086e](https://github.com/SoulLyoko/vue-arcgis-api/commit/b0f086ed1a19743173e7af63142b2df902d004ef))
+
+
+
 ## [0.2.1](https://github.com/SoulLyoko/vue-arcgis-api/compare/v0.2.0...v0.2.1) (2022-01-06)
 
 
