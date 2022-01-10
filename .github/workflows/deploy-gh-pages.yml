@@ -2,7 +2,7 @@ name: Deply To gh-pages
 on:
   push:
     branches:
-      - master
+      - storybook
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -20,4 +20,4 @@ jobs:
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           branch: gh-pages
-          folder: docs/.vitepress/dist
+          folder: storybook-static

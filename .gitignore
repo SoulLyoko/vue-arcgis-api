@@ -7,3 +7,4 @@ lib
 .history
 public/assets
 docs/public/assets
+storybook-static
