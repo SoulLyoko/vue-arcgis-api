@@ -1,0 +1,1 @@
+- [MapProperties](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#properties-summary)

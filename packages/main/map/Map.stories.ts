@@ -1,9 +1,16 @@
-import { EMap } from "./";
-import { EMapView } from "../../views/mapView";
+import readme from "./map.md";
+import { EMap } from ".";
 
 export default {
   title: "Main/Map",
   component: EMap,
+  parameters: {
+    docs: {
+      description: {
+        component: readme
+      }
+    }
+  },
   argTypes: {
     basemap: {
       control: { type: "select" },
@@ -29,16 +36,16 @@ export default {
   }
 };
 
-const Template = (args: __esri.MapProperties) => ({
-  components: { EMap, EMapView },
+export const Default = (args: __esri.MapProperties) => ({
   setup() {
-    return { args };
+    return {
+      basemap: args.basemap,
+      ground: args.ground
+    };
   },
-  template: '<EMap v-bind="args"><EMapView></EMapView></EMap>'
+  template: `<EMap :basemap="basemap" :ground="ground"><EMapView></EMapView></EMap>`
 });
-
-export const Default = Template.bind({});
-(Default as any).args = {
+Default.args = {
   basemap: "streets-vector",
   ground: "world-elevation"
 };

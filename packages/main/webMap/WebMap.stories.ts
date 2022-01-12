@@ -1,20 +1,28 @@
-import { EWebMap } from "./";
+import readme from "./webMap.md";
+import { EWebMap } from ".";
 
 export default {
   title: "Main/WebMap",
   component: EWebMap,
+  parameters: {
+    docs: {
+      description: {
+        component: readme
+      }
+    }
+  },
   argTypes: {}
 };
 
-const Template = (args: __esri.WebMapProperties) => ({
+export const Default = (args: __esri.WebMapProperties) => ({
   setup() {
-    return { args };
+    return {
+      portalItem: args.portalItem
+    };
   },
-  template: '<EWebMap v-bind="args"><EMapView></EMapView></EWebMap>'
+  template: `<EWebMap :portalItem="portalItem"><EMapView></EMapView></EWebMap>`
 });
-
-export const Default = Template.bind({});
-(Default as any).args = {
+Default.args = {
   portalItem: {
     // autocasts as new PortalItem()
     id: "e691172598f04ea8881cd2a4adaa45ba"
