@@ -16,13 +16,16 @@ export default {
 
 export const Default = (args: __esri.SceneViewProperties) => ({
   setup() {
-    return { args };
+    return {
+      center: args.center,
+      zoom: args.zoom
+    };
   },
   template: `<EWebMap basemap="hybrid">
-    <ESceneView v-bind="args"></ESceneView>
+    <ESceneView :center="center" :zoom="zoom"></ESceneView>
   </EWebMap>`
 });
 Default.args = {
   center: [-112, 38],
-  zoom: 0
+  zoom: 3
 };

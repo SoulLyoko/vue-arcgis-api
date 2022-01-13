@@ -1,11 +1,11 @@
-import { defineComponent, onBeforeMount, onUnmounted } from "vue-demi";
+import { defineComponent, onBeforeMount, onUnmounted, inject, Ref } from "vue-demi";
 import Graphic from "@arcgis/core/Graphic";
-import { useRootView, useWatch, useInject } from "../../use";
+import { useRootView, useWatch } from "../../use";
 
 export const EGraphic = defineComponent({
   name: "EGraphic",
   setup(props, { attrs, emit }) {
-    const { graphicsLayer } = useInject();
+    const graphicsLayer = inject<Ref<__esri.GraphicsLayer>>("graphicsLayer");
 
     onBeforeMount(async () => {
       onUnmounted(() => (graphic && graphicsLayer?.value?.remove(graphic)) || view?.graphics.remove(graphic));

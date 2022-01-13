@@ -20,7 +20,7 @@ export const Default = (args: __esri.WebSceneProperties) => ({
       portalItem: args.portalItem
     };
   },
-  template: `<EWebScene  :portalItem="portalItem"><EMapView></EMapView></EWebScene>`
+  template: `<EWebScene :portalItem="portalItem"><EMapView></EMapView></EWebScene>`
 });
 Default.args = {
   portalItem: {
