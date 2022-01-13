@@ -12,6 +12,12 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/
     }
+  },
+  layout: "centered",
+  options: {
+    storySort: {
+      order: ["Main", ["Map", "WebMap", "WebScene", "Graphic"], "Views", "Layers"]
+    }
   }
 };
 
