@@ -4,10 +4,9 @@ import { MapEmitter, MapInstance, ViewInstance } from "../types";
 export function useInject() {
   const rootMap = inject<Ref<MapInstance>>("rootMap");
   const rootView = inject<Ref<ViewInstance>>("rootView");
-  const graphicsLayer = inject<Ref<__esri.GraphicsLayer>>("graphicsLayer");
   const mapEmitter = inject<MapEmitter>("mapEmitter");
 
-  return { rootMap, rootView, graphicsLayer, mapEmitter };
+  return { rootMap, rootView, mapEmitter };
 }
 
 export function useRootMap() {
