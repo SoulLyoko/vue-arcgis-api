@@ -1,16 +1,12 @@
-import readme from "./mapImageLayer.md";
+import readme from "./MapImageLayer.md";
+import { argTypes, readmeDocs } from "../common";
 import { EMapImageLayer } from ".";
-import { argTypes } from "../common";
 
 export default {
   title: "Layers/MapImageLayer",
   component: EMapImageLayer,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {
     ...argTypes

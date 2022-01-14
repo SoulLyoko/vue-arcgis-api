@@ -1,15 +1,12 @@
-import readme from "./webScene.md";
+import readme from "./WebScene.md";
+import { readmeDocs } from "../common";
 import { EWebScene } from ".";
 
 export default {
   title: "Main/WebScene",
   component: EWebScene,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {}
 };

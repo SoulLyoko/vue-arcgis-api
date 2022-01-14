@@ -1,15 +1,12 @@
-import readme from "./map.md";
+import readme from "./Map.md";
+import { readmeDocs } from "../common";
 import { EMap } from ".";
 
 export default {
   title: "Main/Map",
   component: EMap,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {
     basemap: {

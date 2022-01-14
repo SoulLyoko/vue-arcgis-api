@@ -1,16 +1,12 @@
-import readme from "./featureLayer.md";
+import readme from "./FeatureLayer.md";
+import { argTypes, readmeDocs } from "../common";
 import { EFeatureLayer } from ".";
-import { argTypes } from "../common";
 
 export default {
   title: "Layers/FeatureLayer",
   component: EFeatureLayer,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {
     ...argTypes

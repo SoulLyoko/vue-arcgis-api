@@ -1,16 +1,12 @@
-import readme from "./graphicsLayer.md";
+import readme from "./GraphicsLayer.md";
+import { argTypes, readmeDocs } from "../common";
 import { EGraphicsLayer } from ".";
-import { argTypes } from "../common";
 
 export default {
   title: "Layers/GraphicsLayer",
   component: EGraphicsLayer,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {
     ...argTypes

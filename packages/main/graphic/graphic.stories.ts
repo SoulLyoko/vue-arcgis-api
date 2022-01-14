@@ -1,15 +1,12 @@
-import readme from "./graphic.md";
+import readme from "./Graphic.md";
+import { readmeDocs } from "../common";
 import { EGraphic } from ".";
 
 export default {
   title: "Main/Graphic",
   component: EGraphic,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {}
 };

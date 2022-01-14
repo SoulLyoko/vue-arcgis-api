@@ -1,3 +1,5 @@
+export { readmeDocs } from "../common";
+
 export const argTypes = {
   index: {
     description:

@@ -1,0 +1,1 @@
+export { readmeDocs } from "../common";

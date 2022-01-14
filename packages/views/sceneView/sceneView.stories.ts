@@ -1,15 +1,12 @@
-import readme from "./sceneView.md";
+import readme from "./SceneView.md";
+import { readmeDocs } from "../common";
 import { ESceneView } from ".";
 
 export default {
   title: "Views/SceneView",
   component: ESceneView,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {}
 };

@@ -1,16 +1,12 @@
-import readme from "./tileLayer.md";
+import readme from "./TileLayer.md";
+import { argTypes, readmeDocs } from "../common";
 import { ETileLayer } from ".";
-import { argTypes } from "../common";
 
 export default {
   title: "Layers/TileLayer",
   component: ETileLayer,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {
     ...argTypes

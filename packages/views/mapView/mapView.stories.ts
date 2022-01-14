@@ -1,15 +1,12 @@
-import readme from "./mapView.md";
+import readme from "./MapView.md";
+import { readmeDocs } from "../common";
 import { EMapView } from ".";
 
 export default {
   title: "Views/MapView",
   component: EMapView,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {}
 };

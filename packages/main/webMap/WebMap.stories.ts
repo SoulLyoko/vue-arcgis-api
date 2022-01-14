@@ -1,15 +1,12 @@
-import readme from "./webMap.md";
+import readme from "./WebMap.md";
+import { readmeDocs } from "../common";
 import { EWebMap } from ".";
 
 export default {
   title: "Main/WebMap",
   component: EWebMap,
   parameters: {
-    docs: {
-      description: {
-        component: readme
-      }
-    }
+    ...readmeDocs(readme)
   },
   argTypes: {}
 };
