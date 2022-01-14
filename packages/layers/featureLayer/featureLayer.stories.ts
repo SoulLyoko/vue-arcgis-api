@@ -1,5 +1,6 @@
 import readme from "./featureLayer.md";
 import { EFeatureLayer } from ".";
+import { argTypes } from "../common";
 
 export default {
   title: "Layers/FeatureLayer",
@@ -11,7 +12,9 @@ export default {
       }
     }
   },
-  argTypes: {}
+  argTypes: {
+    ...argTypes
+  }
 };
 
 export const Default = (args: __esri.FeatureLayerProperties) => ({

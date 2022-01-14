@@ -13,7 +13,6 @@ export const parameters = {
       date: /Date$/
     }
   },
-  layout: "centered",
   options: {
     storySort: {
       order: ["Main", ["Map", "WebMap", "WebScene", "Graphic"], "Views", "Layers"]

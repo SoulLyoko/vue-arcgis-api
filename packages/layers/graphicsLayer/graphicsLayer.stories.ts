@@ -1,5 +1,6 @@
 import readme from "./graphicsLayer.md";
 import { EGraphicsLayer } from ".";
+import { argTypes } from "../common";
 
 export default {
   title: "Layers/GraphicsLayer",
@@ -11,7 +12,9 @@ export default {
       }
     }
   },
-  argTypes: {}
+  argTypes: {
+    ...argTypes
+  }
 };
 
 export const Default = (args: __esri.GraphicsLayerProperties) => ({

@@ -1,5 +1,6 @@
 import readme from "./mapImageLayer.md";
 import { EMapImageLayer } from ".";
+import { argTypes } from "../common";
 
 export default {
   title: "Layers/MapImageLayer",
@@ -11,7 +12,9 @@ export default {
       }
     }
   },
-  argTypes: {}
+  argTypes: {
+    ...argTypes
+  }
 };
 
 export const Default = (args: __esri.MapImageLayerProperties) => ({
