@@ -1,1 +1,0 @@
-- [WebSceneProperties](https://developers.arcgis.com/javascript/latest/api-reference/esri-WebScene.html#properties-summary)

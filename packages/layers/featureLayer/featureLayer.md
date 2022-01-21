@@ -1,2 +1,0 @@
-- [FeatureLayerProperties](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#properties-summary)
-- [FeatureLayerEvents](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html#events-summary)

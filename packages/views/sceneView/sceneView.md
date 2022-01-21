@@ -1,2 +1,0 @@
-- [SceneViewProperties](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html#properties-summary)
-- [SceneViewEvents](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-SceneView.html#events-summary)

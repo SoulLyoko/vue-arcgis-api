@@ -1,2 +1,0 @@
-- [MapImageLayerProperties](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-MapImageLayer.html#properties-summary)
-- [MapImageLayerEvents](https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-MapImageLayer.html#events-summary)

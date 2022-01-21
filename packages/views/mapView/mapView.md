@@ -1,2 +1,0 @@
-- [MapViewProperties](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#properties-summary)
-- [MapViewEvents](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#events-summary)
