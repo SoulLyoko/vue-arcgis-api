@@ -79,13 +79,11 @@ const widgets = [
 ];
 
 const genIndex = ({ name, events }) => {
-  let eventsStr = "";
+  let eventsStr = "[] as never[]";
   if (events?.length > 5) {
     eventsStr = JSON.stringify(events, undefined, 2);
   } else if (events?.length) {
     eventsStr = JSON.stringify(events).replace(/,/g, ", ");
-  } else {
-    eventsStr = "[] as never[]";
   }
   return `import { defineComponent } from "vue-demi";
 import ${name} from "@arcgis/core/widgets/${name}";
@@ -93,11 +91,8 @@ import { useInitWidget } from "../../use";
 
 const events = ${eventsStr};
 
-export const E${name} = defineComponent({
-  name: "E${name}",
-  setup(props, context) {
-    return useInitWidget({ ...context, Module: ${name}, events });
-  }
+export const E${name} = defineComponent((props, context) => {
+  return useInitWidget({ ...context, Module: ${name}, events });
 });
 
 export type E${name} = InstanceType<typeof E${name}>;
@@ -142,13 +137,8 @@ Default.args = {
 };
 `;
 
-//首字母小写
-const lowercase = ([first, ...rest]) => {
-  return [first.toLowerCase(), ...rest].join("");
-};
-
 widgets.forEach(widget => {
-  const basePath = `packages/widgets/${lowercase(widget.name)}`;
+  const basePath = `packages/widgets/${widget.name}`;
   if (!fs.existsSync(basePath)) {
     fs.mkdirSync(basePath);
   }

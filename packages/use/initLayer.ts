@@ -8,8 +8,8 @@ export function useInitLayer({
   emit,
   attrs,
   Module,
-  otherEvents = []
-}: SetupContext & { Module: LayerConstructor; otherEvents?: string[] }) {
+  ownEvents = []
+}: SetupContext & { Module: LayerConstructor; ownEvents?: string[] }) {
   const { mapResolver } = injectRoot();
 
   onBeforeMount(async () => {
@@ -19,7 +19,7 @@ export function useInitLayer({
     const layer = new Module(attrs);
     emit("init", layer);
     map.add(layer, attrs.index as number);
-    useEvents({ events: [...layerEvents, ...otherEvents], emit, instance: layer });
+    useEvents({ events: [...layerEvents, ...ownEvents], emit, instance: layer });
     useWatch({ attrs, instance: layer });
     useWatchIndex({ attrs, instance: layer, map });
   });
