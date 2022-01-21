@@ -1,15 +1,27 @@
-import { defineComponent, provide } from "vue-demi";
+import { defineComponent, shallowRef } from "vue-demi";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
-import { useInitLayer } from "../../use";
+import { layerEvents, useWatchIndex, provideGraphicsLayer } from "../../use";
+import { onBeforeMount, onUnmounted } from "vue-demi";
+import { useEvents, useWatch, injectRoot } from "../../use";
 
-export const EGraphicsLayer = defineComponent({
-  name: "EGraphicsLayer",
-  setup(props, context) {
-    const { instance } = useInitLayer({ ...context, Module: GraphicsLayer });
-    provide("graphicsLayer", instance);
+export const EGraphicsLayer = defineComponent((props, { attrs, emit, slots }) => {
+  const { mapResolver } = injectRoot();
+  const layer = shallowRef<GraphicsLayer>();
+  provideGraphicsLayer(layer);
 
-    return () => context.slots.default?.();
-  }
+  onBeforeMount(async () => {
+    onUnmounted(() => layer.value && map?.remove(layer.value));
+
+    const map = await mapResolver();
+    layer.value = new GraphicsLayer(attrs as __esri.GraphicProperties);
+    emit("init", layer.value);
+    map.add(layer.value, attrs.index as number);
+    useEvents({ events: layerEvents, emit, instance: layer.value });
+    useWatch({ attrs, instance: layer.value });
+    useWatchIndex({ attrs, instance: layer.value, map });
+  });
+
+  return () => slots.default?.();
 });
 
 export type EGraphicsLayer = InstanceType<typeof EGraphicsLayer>;

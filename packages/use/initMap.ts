@@ -1,24 +1,62 @@
-import { onMounted, shallowRef, provide, SetupContext } from "vue-demi";
+import { onMounted, shallowReactive, SetupContext } from "vue-demi";
 import mitt from "mitt";
 import { h } from "../utils";
 import { MapEmitEvents, MapConstructor, MapInstance, ViewInstance } from "../types";
+import { RootInject, provideRoot } from ".";
 
-export function useInitMap({ emit, attrs, slots, Module }: SetupContext & { Module: MapConstructor }) {
-  const mapEmitter = mitt<MapEmitEvents>();
-  const rootMap = shallowRef<MapInstance>();
-  const rootView = shallowRef<ViewInstance>();
+export function useInitMap({
+  emit,
+  attrs,
+  slots,
+  Module
+}: SetupContext<["init", "viewInit"]> & { Module: MapConstructor }) {
+  const emitter = mitt<MapEmitEvents>();
 
-  provide("mapEmitter", mapEmitter);
-  provide("rootMap", rootMap);
-  provide("rootView", rootView);
+  const root: RootInject = shallowReactive({
+    map: undefined,
+    view: undefined,
+    mapResolver: mapResolver,
+    viewResolver: viewResolver,
+    emitter
+  });
+
+  function mapResolver() {
+    return new Promise<MapInstance>(resolve => {
+      if (root.map) {
+        resolve(root.map);
+      } else {
+        const resolver = (map: MapInstance) => {
+          emitter?.off("rootMapInit", resolver);
+          resolve(map);
+        };
+        emitter.on("rootMapInit", resolver);
+      }
+    });
+  }
+
+  function viewResolver() {
+    return new Promise<ViewInstance>(resolve => {
+      if (root.view) {
+        resolve(root.view);
+      } else {
+        const resolver = (view: ViewInstance) => {
+          emitter?.off("rootViewInit", resolver);
+          resolve(view);
+        };
+        emitter?.on("rootViewInit", resolver);
+      }
+    });
+  }
+
+  provideRoot(root);
 
   onMounted(() => {
-    rootMap.value = new Module(attrs);
-    emit("init", rootMap.value);
-    mapEmitter.emit("rootMapInit", rootMap.value);
-    mapEmitter.on("rootViewInit", (view: ViewInstance) => {
-      rootView.value = view;
-      emit("viewInit", rootView.value, rootMap.value);
+    root.map = new Module(attrs);
+    emit("init", root.map);
+    emitter.emit("rootMapInit", root.map);
+    emitter.on("rootViewInit", (view: ViewInstance) => {
+      root.view = view;
+      emit("viewInit", root.view, root.map);
     });
   });
 

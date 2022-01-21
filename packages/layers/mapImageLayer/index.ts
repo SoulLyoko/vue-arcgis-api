@@ -2,12 +2,8 @@ import { defineComponent } from "vue-demi";
 import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
 import { useInitLayer } from "../../use";
 
-export const EMapImageLayer = defineComponent({
-  name: "EMapImageLayer",
-  setup(props, context) {
-    useInitLayer({ ...context, Module: MapImageLayer });
-    return () => {};
-  }
+export const EMapImageLayer = defineComponent((props, context) => {
+  return useInitLayer({ ...context, Module: MapImageLayer });
 });
 
 export type EMapImageLayer = InstanceType<typeof EMapImageLayer>;

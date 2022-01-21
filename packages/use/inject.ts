@@ -1,36 +1,20 @@
-import { inject, Ref } from "vue-demi";
+import { provide, inject, InjectionKey, ShallowRef } from "vue-demi";
 import { MapEmitter, MapInstance, ViewInstance } from "../types";
 
-export function useInject() {
-  const rootMap = inject<Ref<MapInstance>>("rootMap");
-  const rootView = inject<Ref<ViewInstance>>("rootView");
-  const mapEmitter = inject<MapEmitter>("mapEmitter");
-
-  return { rootMap, rootView, mapEmitter };
+/** RootInject */
+export interface RootInject {
+  map?: MapInstance;
+  view?: ViewInstance;
+  mapResolver: () => Promise<MapInstance>;
+  viewResolver: () => Promise<ViewInstance>;
+  emitter: MapEmitter;
 }
+export const rootInjectKey: InjectionKey<RootInject> = Symbol();
+export const provideRoot = (root: RootInject) => provide(rootInjectKey, root);
+export const injectRoot = () => inject(rootInjectKey)!;
 
-export function useRootMap() {
-  const { rootMap, mapEmitter } = useInject();
-  const promise = new Promise<MapInstance>(resolve => {
-    mapEmitter?.on("rootMapInit", resolver);
-
-    function resolver(view: MapInstance) {
-      mapEmitter?.off("rootMapInit", resolver);
-      resolve(view);
-    }
-  });
-  return rootMap?.value ?? promise;
-}
-
-export function useRootView() {
-  const { rootView, mapEmitter } = useInject();
-  const promise = new Promise<ViewInstance>(resolve => {
-    mapEmitter?.on("rootViewInit", resolver);
-
-    function resolver(view: ViewInstance) {
-      mapEmitter?.off("rootViewInit", resolver);
-      resolve(view);
-    }
-  });
-  return rootView?.value ?? promise;
-}
+/** GraphicsLayerInject */
+export type GraphicsLayerInject = ShallowRef<__esri.GraphicsLayer | undefined>;
+export const graphicsLayerInjectKey: InjectionKey<GraphicsLayerInject> = Symbol();
+export const provideGraphicsLayer = (layer: GraphicsLayerInject) => provide(graphicsLayerInjectKey, layer);
+export const injectGraphicsLayer = () => inject(graphicsLayerInjectKey)!;

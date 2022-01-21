@@ -12,7 +12,7 @@ yarn add @arcgis/core ncp --dev
 yarn add vue-arcgis-api
 ```
 
-- 在 package.json 中为你的 script 添加: `"cp:arcgis": "ncp ./node_modules/@arcgis/core/assets ./public/assets"`
+- 在 package.json 中为你的 scripts 添加: `"cp:arcgis": "ncp ./node_modules/@arcgis/core/assets ./public/assets"`
 - 运行一次 `yarn cp:arcgis` 将 acrgisapi 拷贝到项目目录下就可以开始啦
 
 ## 快速上手
@@ -38,7 +38,7 @@ new Vue({
 
 `App.vue`
 
-```html
+```vue
 <template>
   <div class="mapDiv">
     <EMap :basemap="basemap">
@@ -48,23 +48,23 @@ new Vue({
 </template>
 
 <script>
-  export default {
-    name: "App",
-    data() {
-      return {
-        basemap: "topo",
-        center: [0, 0],
-        zoom: 0
-      };
-    }
-  };
+export default {
+  name: "App",
+  data() {
+    return {
+      basemap: "topo",
+      center: [0, 0],
+      zoom: 0
+    };
+  }
+};
 </script>
 
 <style scoped>
-  .mapDiv {
-    width: 100%;
-    height: 300px;
-  }
+.mapDiv {
+  width: 100%;
+  height: 300px;
+}
 </style>
 ```
 
@@ -72,7 +72,7 @@ new Vue({
 
 `App.vue`
 
-```html
+```vue
 <template>
   <div class="mapDiv">
     <EMap :basemap="basemap">
@@ -82,28 +82,28 @@ new Vue({
 </template>
 
 <script>
-  import { EMap, EMapView } from "vue-arcgis-api";
-  import "@arcgis/core/assets/esri/themes/light/main.css";
-  import esriConfig from "@arcgis/core/config.js";
-  esriConfig.assetsPath = "/assets";
+import { EMap, EMapView } from "vue-arcgis-api";
+import "@arcgis/core/assets/esri/themes/light/main.css";
+import esriConfig from "@arcgis/core/config.js";
+esriConfig.assetsPath = "/assets";
 
-  export default {
-    name: "App",
-    components: { EMap, EMapView },
-    data() {
-      return {
-        basemap: "topo",
-        center: [0, 0],
-        zoom: 0
-      };
-    }
-  };
+export default {
+  name: "App",
+  components: { EMap, EMapView },
+  data() {
+    return {
+      basemap: "topo",
+      center: [0, 0],
+      zoom: 0
+    };
+  }
+};
 </script>
 
 <style scoped>
-  .mapDiv {
-    width: 100%;
-    height: 300px;
-  }
+.mapDiv {
+  width: 100%;
+  height: 300px;
+}
 </style>
 ```

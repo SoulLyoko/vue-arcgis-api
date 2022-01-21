@@ -2,13 +2,15 @@ import { defineComponent, onMounted, shallowReactive } from "vue-demi";
 import Draw from "@arcgis/core/views/draw/Draw";
 import { PROPS } from "./use/const";
 import { useCreate } from "./use/create";
-import { useRootView } from "../../use";
+import { injectRoot } from "../../use";
 import { DrawState } from "./types";
 
 export const EDraw = defineComponent({
   name: "EDraw",
   props: PROPS,
   setup(props, { emit, expose, attrs }) {
+    const { viewResolver } = injectRoot();
+
     const state = shallowReactive<DrawState>({
       drawer: null,
       graphicsLayer: null,
@@ -17,7 +19,7 @@ export const EDraw = defineComponent({
     });
 
     onMounted(async () => {
-      const view = await useRootView();
+      const view = await viewResolver();
       state.drawer = new Draw({ view, ...attrs });
       emit("init", state.drawer);
     });

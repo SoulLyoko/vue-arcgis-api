@@ -1,7 +1,7 @@
-import { onMounted, inject, SetupContext } from "vue-demi";
-import { useEvents, useWatch, useRootMap } from "./";
+import { onMounted, SetupContext } from "vue-demi";
+import { useEvents, useWatch, injectRoot } from "./";
 import { uuid, h } from "../utils";
-import { MapEmitter, ViewConstructor } from "../types";
+import { ViewConstructor } from "../types";
 
 const commonEvents = [
   "blur",
@@ -33,18 +33,14 @@ export function useInitView({
   Module,
   otherEvents = []
 }: SetupContext & { Module: ViewConstructor; otherEvents?: string[] }) {
-  const mapEmitter = inject<MapEmitter>("mapEmitter");
+  const { mapResolver, emitter } = injectRoot();
   const containerId = uuid();
 
   onMounted(async () => {
-    const map = await useRootMap();
-    const view = new Module({
-      container: containerId,
-      map,
-      ...attrs
-    });
+    const map = await mapResolver();
+    const view = new Module({ container: containerId, map, ...attrs });
     emit("init", view, map);
-    mapEmitter?.emit("rootViewInit", view);
+    emitter?.emit("rootViewInit", view);
     useEvents({ events: [...commonEvents, ...otherEvents], emit, instance: view });
     useWatch({ attrs, instance: view });
   });

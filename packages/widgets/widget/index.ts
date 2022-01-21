@@ -1,7 +1,7 @@
 import { defineComponent, onMounted, onUnmounted, PropType, watch } from "vue-demi";
 import widgetsModules from "./modules";
 import { h } from "../../utils";
-import { useWatch, useRootView } from "../../use";
+import { useWatch, injectRoot } from "../../use";
 import { ViewInstance } from "../../types";
 
 export const EWidget = defineComponent({
@@ -11,10 +11,12 @@ export const EWidget = defineComponent({
     position: { type: [String, Object] as PropType<Required<__esri.UIAddPosition>["position"] | __esri.UIAddPosition> }
   },
   setup(props, { attrs, slots }) {
+    const { viewResolver } = injectRoot();
+
     onMounted(async () => {
       onUnmounted(() => view?.ui.remove([widget]));
 
-      const view = await useRootView();
+      const view = await viewResolver();
       const widget = init(view);
       watch(
         () => props.position,

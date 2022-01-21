@@ -1,8 +1,8 @@
-import { onBeforeMount, onUnmounted, SetupContext, shallowRef, watch } from "vue-demi";
-import { useEvents, useWatch, useRootMap } from "./";
-import { LayerInstance, LayerConstructor } from "../types";
+import { onBeforeMount, onUnmounted, SetupContext, watch } from "vue-demi";
+import { useEvents, useWatch, injectRoot } from "./";
+import { LayerInstance, LayerConstructor, MapInstance } from "../types";
 
-const commonEvents = ["layerview-create", "layerview-create-error", "layerview-destroy", "refresh"];
+export const layerEvents = ["layerview-create", "layerview-create-error", "layerview-destroy"];
 
 export function useInitLayer({
   emit,
@@ -10,23 +10,34 @@ export function useInitLayer({
   Module,
   otherEvents = []
 }: SetupContext & { Module: LayerConstructor; otherEvents?: string[] }) {
-  const instance = shallowRef<LayerInstance>();
+  const { mapResolver } = injectRoot();
 
   onBeforeMount(async () => {
     onUnmounted(() => layer && map?.remove(layer));
 
-    const map = await useRootMap();
+    const map = await mapResolver();
     const layer = new Module(attrs);
-    instance.value = layer;
     emit("init", layer);
     map.add(layer, attrs.index as number);
-    useEvents({ events: [...commonEvents, ...otherEvents], emit, instance: layer });
+    useEvents({ events: [...layerEvents, ...otherEvents], emit, instance: layer });
     useWatch({ attrs, instance: layer });
-    watch(
-      () => attrs.index as number,
-      val => map.reorder(layer, val)
-    );
+    useWatchIndex({ attrs, instance: layer, map });
   });
 
-  return { instance };
+  return () => {};
+}
+
+export async function useWatchIndex({
+  attrs,
+  instance,
+  map
+}: {
+  attrs: SetupContext["attrs"];
+  instance: LayerInstance;
+  map: MapInstance;
+}) {
+  watch(
+    () => attrs.index as number,
+    val => map.reorder(instance, val)
+  );
 }
