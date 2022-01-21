@@ -1,13 +1,13 @@
 // main
-export * from "./main/map";
-export * from "./main/graphic";
-export * from "./main/webMap";
-export * from "./main/webScene";
+export * from "./main/Map";
+export * from "./main/Graphic";
+export * from "./main/WebMap";
+export * from "./main/WebScene";
 
 // views
-export * from "./views/draw";
-export * from "./views/mapView";
-export * from "./views/sceneView";
+export * from "./views/Draw";
+export * from "./views/MapView";
+export * from "./views/SceneView";
 
 //layers
 // export * from "./layers/BaseDynamicLayer";
@@ -17,16 +17,16 @@ export * from "./views/sceneView";
 // export * from "./layers/BuildingSceneLayer";
 // export * from "./layers/CSVLayer";
 // export * from "./layers/ElevationLayer";
-export * from "./layers/featureLayer";
+export * from "./layers/FeatureLayer";
 // export * from "./layers/GeoJSONLayer";
 // export * from "./layers/GeoRSSLayer";
-export * from "./layers/graphicsLayer";
+export * from "./layers/GraphicsLayer";
 // export * from "./layers/GroupLayer";
 // export * from "./layers/ImageryLayer";
 // export * from "./layers/ImageryTileLayer";
 // export * from "./layers/IntegratedMeshLayer";
 // export * from "./layers/KMLLayer";
-export * from "./layers/mapImageLayer";
+export * from "./layers/MapImageLayer";
 // export * from "./layers/MapNotesLayer";
 // export * from "./layers/OGCFeatureLayer";
 // export * from "./layers/OpenStreetMapLayer";
@@ -34,7 +34,7 @@ export * from "./layers/mapImageLayer";
 // export * from "./layers/SceneLayer";
 // export * from "./layers/StreamLayer";
 // export * from "./layers/SubtypeGroupLayer";
-export * from "./layers/tileLayer";
+export * from "./layers/TileLayer";
 // export * from "./layers/UnknownLayer";
 // export * from "./layers/UnsupportedLayer";
 // export * from "./layers/VectorTileLayer";
@@ -46,7 +46,7 @@ export * from "./layers/tileLayer";
 // export * from "./layers/WMTSLayer";
 
 // widgets
-export * from "./widgets/widget";
+export * from "./widgets/Widget";
 // export * from "./widgets/AreaMeasurement2D";
 // export * from "./widgets/AreaMeasurement3D";
 // export * from "./widgets/Attachments";
