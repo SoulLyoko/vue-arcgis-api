@@ -32,6 +32,7 @@
     "sb": "start-storybook -p 6006",
     "sb:build": "build-storybook",
     "sb:deploy": "storybook-to-ghpages",
+    "gen:layers": "node scripts/gen_layers.js",
     "gen:widgets": "node scripts/gen_widgets.js"
   },
   "dependencies": {
