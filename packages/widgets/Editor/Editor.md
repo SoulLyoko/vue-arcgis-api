@@ -1,0 +1,1 @@
+- [EditorProperties](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Editor.html#properties-summary)

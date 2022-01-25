@@ -16,7 +16,7 @@ const widgets = [
   { name: "Directions" },
   { name: "DirectLineMeasurement3D" },
   { name: "DistanceMeasurement2D" },
-  { name: "Editor" },
+  // { name: "Editor" },
   { name: "ElevationProfile" },
   { name: "Expand" },
   { name: "Feature" },

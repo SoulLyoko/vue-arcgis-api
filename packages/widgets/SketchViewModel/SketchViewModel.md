@@ -1,0 +1,2 @@
+- [SketchViewModelProperties](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch-SketchViewModel.html#properties-summary)
+- [SketchViewModelEvents](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Sketch-SketchViewModel.html#events-summary)

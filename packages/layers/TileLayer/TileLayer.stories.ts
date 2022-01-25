@@ -20,9 +20,9 @@ export const Default = (args: __esri.TileLayerProperties) => ({
     };
   },
   template: `<EMap>
-      <EMapView></EMapView>
-      <ETileLayer :url="url"></ETileLayer>
-    </EMap>`
+    <EMapView></EMapView>
+    <ETileLayer :url="url"></ETileLayer>
+  </EMap>`
 });
 Default.args = {
   url: "https://services.arcgisonline.com/arcgis/rest/services/World_Terrain_Base/MapServer"

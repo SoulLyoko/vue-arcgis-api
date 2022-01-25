@@ -20,9 +20,9 @@ export const Default = (args: __esri.MapImageLayerProperties) => ({
     };
   },
   template: `<EMap>
-      <EMapView></EMapView>
-      <EMapImageLayer :url="url"></EMapImageLayer>
-    </EMap>`
+    <EMapView></EMapView>
+    <EMapImageLayer :url="url"></EMapImageLayer>
+  </EMap>`
 });
 Default.args = {
   url: "https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer"

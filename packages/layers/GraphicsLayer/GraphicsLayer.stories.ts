@@ -32,9 +32,9 @@ export const Default = (args: __esri.GraphicsLayerProperties) => ({
     };
   },
   template: `<EMap basemap="topo-vector">
-      <EMapView :center="[-98, 49.5]" :zoom="3"></EMapView>
-      <EGraphicsLayer>
-        <EGraphic :geometry="geometry" :symbol="symbol"></EGraphic>
-      </EGraphicsLayer>
-    </EMap>`
+    <EMapView :center="[-98, 49.5]" :zoom="3"></EMapView>
+    <EGraphicsLayer>
+      <EGraphic :geometry="geometry" :symbol="symbol"></EGraphic>
+    </EGraphicsLayer>
+  </EMap>`
 });

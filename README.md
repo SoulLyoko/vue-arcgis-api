@@ -38,7 +38,7 @@ new Vue({
 
 `App.vue`
 
-```vue
+```html
 <template>
   <div class="mapDiv">
     <EMap :basemap="basemap">
@@ -72,7 +72,7 @@ export default {
 
 `App.vue`
 
-```vue
+```html
 <template>
   <div class="mapDiv">
     <EMap :basemap="basemap">

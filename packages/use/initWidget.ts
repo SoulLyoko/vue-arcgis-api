@@ -31,11 +31,11 @@ export async function useWatchPosition({
   view
 }: {
   attrs: SetupContext["attrs"];
-  instance: WidgetInstance;
+  instance: WidgetInstance | HTMLElement;
   view: ViewInstance;
 }) {
   watch(
-    () => attrs.position as __esri.UIAddPosition,
-    val => view.ui.move(instance, val)
+    () => attrs.position as __esri.UIMovePosition,
+    val => view.ui.move([instance], val)
   );
 }

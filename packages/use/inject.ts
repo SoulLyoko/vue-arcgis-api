@@ -14,7 +14,11 @@ export const provideRoot = (root: RootInject) => provide(rootInjectKey, root);
 export const injectRoot = () => inject(rootInjectKey)!;
 
 /** GraphicsLayerInject */
-export type GraphicsLayerInject = ShallowRef<__esri.GraphicsLayer | undefined>;
+export type GraphicsLayerInject = {
+  layer?: __esri.GraphicsLayer;
+  layerResolver: () => Promise<__esri.GraphicsLayer>;
+  emitter: MapEmitter;
+};
 export const graphicsLayerInjectKey: InjectionKey<GraphicsLayerInject> = Symbol();
-export const provideGraphicsLayer = (layer: GraphicsLayerInject) => provide(graphicsLayerInjectKey, layer);
+export const provideGraphicsLayer = (state: GraphicsLayerInject) => provide(graphicsLayerInjectKey, state);
 export const injectGraphicsLayer = () => inject(graphicsLayerInjectKey)!;

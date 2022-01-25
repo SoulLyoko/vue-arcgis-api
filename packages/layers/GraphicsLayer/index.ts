@@ -1,24 +1,25 @@
-import { defineComponent, shallowRef } from "vue-demi";
+import { defineComponent } from "vue-demi";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
-import { layerEvents, useWatchIndex, provideGraphicsLayer } from "../../use";
+import { layerEvents, useWatchIndex } from "../../use";
 import { onBeforeMount, onUnmounted } from "vue-demi";
 import { useEvents, useWatch, injectRoot } from "../../use";
+import { useInjectState } from "./state";
 
 export const EGraphicsLayer = defineComponent((props, { attrs, emit, slots }) => {
   const { mapResolver } = injectRoot();
-  const layer = shallowRef<GraphicsLayer>();
-  provideGraphicsLayer(layer);
+  const state = useInjectState();
 
   onBeforeMount(async () => {
-    onUnmounted(() => layer.value && map?.remove(layer.value));
+    onUnmounted(() => state.layer && map?.remove(state.layer));
 
     const map = await mapResolver();
-    layer.value = new GraphicsLayer(attrs as __esri.GraphicProperties);
-    emit("init", layer.value);
-    map.add(layer.value, attrs.index as number);
-    useEvents({ events: layerEvents, emit, instance: layer.value });
-    useWatch({ attrs, instance: layer.value });
-    useWatchIndex({ attrs, instance: layer.value, map });
+    state.layer = new GraphicsLayer(attrs as __esri.GraphicProperties);
+    state.emitter.emit("layerInit", state.layer);
+    emit("init", state.layer);
+    map.add(state.layer, attrs.index as number);
+    useEvents({ events: layerEvents, emit, instance: state.layer });
+    useWatch({ attrs, instance: state.layer });
+    useWatchIndex({ attrs, instance: state.layer, map });
   });
 
   return () => slots.default?.();

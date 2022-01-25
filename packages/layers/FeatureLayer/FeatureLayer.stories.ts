@@ -21,9 +21,9 @@ export const Default = (args: __esri.FeatureLayerProperties) => ({
     };
   },
   template: `<EMap basemap="gray-vector">
-      <EMapView :center="[-73.95, 40.702]" :zoom="10"></EMapView>
-      <EFeatureLayer :url="url" :popupTemplate="popupTemplate"></EFeatureLayer>
-    </EMap>`
+    <EMapView :center="[-73.95, 40.702]" :zoom="10"></EMapView>
+    <EFeatureLayer :url="url" :popupTemplate="popupTemplate"></EFeatureLayer>
+  </EMap>`
 });
 Default.args = {
   url: "https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Marital_Status_Boundaries/FeatureServer/2",

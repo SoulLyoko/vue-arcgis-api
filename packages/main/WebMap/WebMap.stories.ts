@@ -17,7 +17,9 @@ export const Default = (args: __esri.WebMapProperties) => ({
       portalItem: args.portalItem
     };
   },
-  template: `<EWebMap :portalItem="portalItem"><EMapView></EMapView></EWebMap>`
+  template: `<EWebMap :portalItem="portalItem">
+    <EMapView></EMapView>
+  </EWebMap>`
 });
 Default.args = {
   portalItem: {

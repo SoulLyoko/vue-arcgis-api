@@ -40,7 +40,9 @@ export const Default = (args: __esri.MapProperties) => ({
       ground: args.ground
     };
   },
-  template: `<EMap :basemap="basemap" :ground="ground"><EMapView></EMapView></EMap>`
+  template: `<EMap :basemap="basemap" :ground="ground">
+    <EMapView></EMapView>
+  </EMap>`
 });
 Default.args = {
   basemap: "streets-vector",
