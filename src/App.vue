@@ -1,9 +1,7 @@
 <template>
   <div class="mapDiv">
-    <button @click="openDraw">openDraw</button>
-    <EMap basemap="topo">
+    <EMap basemap="topo-vector">
       <EMapView :center="state.center" :zoom="state.zoom"></EMapView>
-      <EDraw ref="EDrawRef"></EDraw>
     </EMap>
     <EWebMap :portalItem="{ id: 'e691172598f04ea8881cd2a4adaa45ba' }">
       <ESceneView :center="[0, 0]" :zoom="0"></ESceneView>
@@ -11,21 +9,24 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, reactive } from "vue-demi";
-import { EMap, EWebMap, EMapView, ESceneView, EDraw } from "~/index";
+<script lang="ts">
+import { reactive, defineComponent } from "vue-demi";
+import { EMap, EWebMap, EMapView, ESceneView } from "~/index";
 import "@arcgis/core/assets/esri/themes/light/main.css";
 
-const state = reactive({
-  center: { x: -98, y: 49.5 },
-  zoom: 12
-});
+export default defineComponent({
+  components: { EMap, EWebMap, EMapView, ESceneView },
+  setup() {
+    const state = reactive({
+      center: { x: -98, y: 49.5 },
+      zoom: 12
+    });
 
-const EDrawRef = ref();
-function openDraw() {
-  console.log(EDrawRef.value);
-  EDrawRef.value.create("point");
-}
+    return {
+      state
+    };
+  }
+});
 </script>
 
 <style>
