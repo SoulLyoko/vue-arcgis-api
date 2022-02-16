@@ -50,8 +50,10 @@ import { useInitLayer } from "../../use";
 
 const ownEvents = ${eventsStr};
 
-export const E${name} = defineComponent((props, context) => {
-  return useInitLayer({ ...context, Module: ${name}, ownEvents });
+export const E${name} = defineComponent({
+  setup(props, context) {
+    return useInitLayer({ ...context, Module: ${name}, ownEvents });
+  }
 });
 
 export type E${name} = InstanceType<typeof E${name}>;

@@ -91,8 +91,10 @@ import { useInitWidget } from "../../use";
 
 const events = ${eventsStr};
 
-export const E${name} = defineComponent((props, context) => {
-  return useInitWidget({ ...context, Module: ${name}, events });
+export const E${name} = defineComponent({
+  setup(props, context) {
+    return useInitWidget({ ...context, Module: ${name}, events });
+  }
 });
 
 export type E${name} = InstanceType<typeof E${name}>;
