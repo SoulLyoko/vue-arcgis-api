@@ -1,4 +1,4 @@
-import { provide, inject, InjectionKey, ShallowRef } from "vue-demi";
+import { provide, inject, InjectionKey } from "vue-demi";
 import { MapEmitter, MapInstance, ViewInstance } from "../types";
 
 /** RootInject */
