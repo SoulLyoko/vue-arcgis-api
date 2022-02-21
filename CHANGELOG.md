@@ -1,3 +1,12 @@
+## [0.2.4](https://github.com/SoulLyoko/vue-arcgis-api/compare/v0.2.3...v0.2.4) (2022-02-21)
+
+
+### Bug Fixes
+
+* change entry file to `lib/index.*.js` ([a32d830](https://github.com/SoulLyoko/vue-arcgis-api/commit/a32d830e047b006ee370a6a571703d617872a1d5))
+
+
+
 ## [0.2.3](https://github.com/SoulLyoko/vue-arcgis-api/compare/v0.2.0...v0.2.3) (2022-02-16)
 
 
