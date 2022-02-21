@@ -7,8 +7,15 @@
   "homepage": "https://github.com/SoulLyoko/vue-arcgis-api#readme",
   "private": false,
   "license": "MIT",
-  "main": "lib/vue-arcgis-api.umd.js",
-  "types": "lib/vue-arcgis-api.d.ts",
+  "main": "lib/index.umd.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./lib/index.umd.js",
+      "import": "./lib/index.es.js"
+    },
+    "./*": "./*"
+  },
   "keywords": [
     "vue",
     "arcgis",

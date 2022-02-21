@@ -22,7 +22,7 @@ export default defineConfig(async () => {
       lib: {
         entry: path.resolve(__dirname, "packages/index.ts"),
         name: "VueArcgisApi",
-        fileName: "vue-arcgis-api"
+        fileName: "index"
       },
       outDir: "lib",
       rollupOptions: {

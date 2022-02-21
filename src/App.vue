@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { reactive, defineComponent } from "vue-demi";
-import { EMap, EWebMap, EMapView, ESceneView } from "~/index";
+import { EMap, EWebMap, EMapView, ESceneView } from "../";
 import "@arcgis/core/assets/esri/themes/light/main.css";
 
 export default defineComponent({
