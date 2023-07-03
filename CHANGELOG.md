@@ -1,3 +1,12 @@
+## [0.2.5](https://github.com/SoulLyoko/vue-arcgis-api/compare/v0.2.4...v0.2.5) (2023-07-03)
+
+
+### Bug Fixes
+
+* component EDraw expose methods in Vue2 ([1695e62](https://github.com/SoulLyoko/vue-arcgis-api/commit/1695e62576ba8c169dcbeb1cf87141555810fb76))
+
+
+
 ## [0.2.4](https://github.com/SoulLyoko/vue-arcgis-api/compare/v0.2.3...v0.2.4) (2022-02-21)
 
 
