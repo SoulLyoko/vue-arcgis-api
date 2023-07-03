@@ -1,5 +1,6 @@
 .github
 .husky
+.storybook
 docs
 node_modules
 public
